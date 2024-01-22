@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { CardFilmWrapper, FilmTitle, FilmDescription, ImageStyle } from "./CardFilm.styled";
 
 const CardFilm = ({ item, genreList }) => {
-  const genre = genreList.find((genre) => genre.id === item.genre_ids[0])
+  const genres = genreList.filter((genre) => item.genre_ids.includes(genre.id))
 
   return (
     <CardFilmWrapper>
