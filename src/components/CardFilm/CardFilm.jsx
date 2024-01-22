@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import { CardFilmWrapper, FilmTitle, FilmDescription, ImageStyle } from "./CardFilm.styled";
 
 const CardFilm = ({ item, genreList }) => {
-
-
-  const genre = genreList.find((genre) => genre.id === item.genre_ids[0])
+  const genres = genreList.filter((genre) => item.genre_ids.includes(genre.id))
 
   return (
     <CardFilmWrapper>
@@ -15,7 +13,7 @@ const CardFilm = ({ item, genreList }) => {
       />{" "}
       <FilmTitle>{item.title}</FilmTitle>
       <p>Release Year: {new Date(item.release_date).getFullYear()}</p>
-      <p>Genre: {genre.map((genre) => genre.name).join(',')}</p>
+      <p>Genre: {genres.map((genre) => genre.name).join(',')}</p>
     </CardFilmWrapper>
   );
 };  

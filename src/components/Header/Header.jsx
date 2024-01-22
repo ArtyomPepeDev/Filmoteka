@@ -10,6 +10,7 @@ const Header = ({setFilms}) => {
     const api_key = '3cfc4cc3ed7c09ed117ed148c7a04c75'
     const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${api_key}`)
     setFilms(response.data.results)
+
     }
   
 
