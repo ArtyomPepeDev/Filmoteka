@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CardFilmWrapper, FilmTitle, FilmDescription } from "./CardFilm.styled";
+import { CardFilmWrapper, FilmTitle, FilmDescription, ImageStyle } from "./CardFilm.styled";
 
 const CardFilm = ({ item }) => {
   return (
     <CardFilmWrapper>
-      <img
+      <ImageStyle
         src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
         alt={item.title}
       />{" "}
