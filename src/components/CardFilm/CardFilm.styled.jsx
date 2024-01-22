@@ -1,21 +1,19 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const CardFilmWrapper = styled.div`
-	.movie-title {
-		font-size: 20px;
-		font-weight: 600;
-		margin-bottom: 10px;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		line-height: 1.2;
-		color: #000;
-		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-		font-family: 'Open Sans', sans-serif;
-	}
+`;
+export const FilmTitle = styled.h1`
+color: #000;
+font-size: 20px;
+font-weight: 500;
+line-height: 24px;
+`;
 
-	.movie-image {
-		width: 395px;
-		height: 574px;
-		flex-shrink: 0;
-	}
+export const FilmDescription = styled.p`
+color: #FF6B08;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
 `
