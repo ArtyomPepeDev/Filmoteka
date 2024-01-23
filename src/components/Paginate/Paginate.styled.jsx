@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const PaginateWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
   .pagination {
     display: flex;
     align-items: center;
@@ -32,6 +36,8 @@ export const PaginateWrapper = styled.div`
     width: 40px;
     height: 40px;
     padding: 13px;
+    margin-right: 8px;
+    margin-left: 8px;
     border-radius: 5px;
     background-color: #f7f7f7;
 
