@@ -14,6 +14,8 @@ const Paginate = ({ pageCount, setPage, page }) => {
     <PaginateWrapper>
       <ReactPaginate
         pageCount={pageCount}
+        pageRangeDisplayed={5}
+        marginPagesDisplayed={1}
         activeClassName="active"
         containerClassName="pagination"
         pageClassName="item"
