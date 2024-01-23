@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const CardFilmWrapper = styled.div`
   max-width: 250px;
+  padding: 10px;
 `
 export const FilmTitle = styled.h1`
   display: flex;
@@ -24,5 +25,7 @@ export const FilmDescription = styled.p`
 `
 
 export const ImageStyle = styled.img`
-  width: 100%;
+  max-width: 250px;
+  max-height: 400px;
+  border-radius: 10px;
 `

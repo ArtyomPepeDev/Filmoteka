@@ -16,15 +16,18 @@ const CardFilm = ({ item, genreList }) => {
 
     const splicedList = list.slice(0, 2)
 
+
     return list.length > 2
       ? [...splicedList, 'Other'].join(', ')
       : splicedList.join(', ')
   }
 
+  const checkPoster = item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : '/src/assets/NotPoster.png'
+
   return (
     <CardFilmWrapper>
       <ImageStyle
-        src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+        src={checkPoster}
         alt={item.title}
       />
       <FilmTitle>
