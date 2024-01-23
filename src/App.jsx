@@ -23,8 +23,6 @@ const App = () => {
 
   useEffect(() => {
     fetchFilms()
-    console.log(page);
-    console.log(query);
   }, [page, query])
 
   return (
