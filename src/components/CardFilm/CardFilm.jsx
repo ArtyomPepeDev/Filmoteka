@@ -31,7 +31,7 @@ const CardFilm = ({ item, genreList }) => {
         alt={item.title}
       />
       <FilmTitle>
-        <Marquee play={item.title.length > 20} speed={40}>
+        <Marquee play={item.title.length > 25} speed={40}>
           {item.title}
         </Marquee>
       </FilmTitle>
