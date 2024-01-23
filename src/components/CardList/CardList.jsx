@@ -5,6 +5,7 @@ import CardFilm from "../CardFilm";
 import PropTypes from "prop-types";
 
 const CardList = ({ list }) => {
+  console.log(list);
   const [genreList, setGenreList] = useState([])
 
   useEffect(() => {
