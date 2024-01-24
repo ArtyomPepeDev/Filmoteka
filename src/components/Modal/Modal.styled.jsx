@@ -16,8 +16,7 @@ export const ModalBackdrop = styled.div`
 `
 
 export const ModalWindow = styled.div`
-  width: 100px;
-  height: 100px;
+
 
   background-color: #fff;
 `
