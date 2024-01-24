@@ -27,9 +27,8 @@ const CardFilm = ({ item, genreList, toggleModal }) => {
     ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
     : '/src/assets/NotPoster.png'
 
-
   return (
-    <CardFilmWrapper onClick={() => {toggleModal(item)}}>
+    <CardFilmWrapper onClick={() => toggleModal(item)}>
       <ImageStyle src={checkPoster} alt={item.title} />
       <FilmContent>
         <FilmTitle>
