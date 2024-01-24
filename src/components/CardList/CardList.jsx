@@ -3,16 +3,15 @@ import axios from 'axios'
 import { CardListWrapper } from './CardList.styled'
 import CardFilm from '../CardFilm'
 import PropTypes from 'prop-types'
-import ModalFilm from '../ModalFilm/ModalFilm'
+import Modal from '../Modal/Modal'
 
 const CardList = ({ list }) => {
-  
   const [genreList, setGenreList] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [selectedFilm, setSelectedFilm] = useState()
 
   const toggleModal = (film) => {
-    setShowModal(prevState => !prevState)
+    setShowModal((prevState) => !prevState)
     setSelectedFilm(film)
   }
 
@@ -29,9 +28,16 @@ const CardList = ({ list }) => {
   return (
     <CardListWrapper>
       {list.map((item) => (
-        <CardFilm toggleModal={toggleModal} key={item.id} item={item} genreList={genreList} />
+        <CardFilm
+          toggleModal={toggleModal}
+          key={item.id}
+          item={item}
+          genreList={genreList}
+        />
       ))}
-      {showModal && selectedFilm &&<ModalFilm toggleModal={toggleModal} film={selectedFilm}/>}
+      {showModal && selectedFilm && (
+        <Modal toggleModal={toggleModal} film={selectedFilm}></Modal>
+      )}
     </CardListWrapper>
   )
 }
