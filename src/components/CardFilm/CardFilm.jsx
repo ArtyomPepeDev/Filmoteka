@@ -5,10 +5,12 @@ import {
   FilmTitle,
   FilmDescription,
   ImageStyle,
+  Divider,
+  FilmContent,
 } from './CardFilm.styled'
 import Marquee from 'react-fast-marquee'
 
-const CardFilm = ({ item, genreList }) => {
+const CardFilm = ({ item, genreList, toggleModal }) => {
   const genres = () => {
     const list = genreList
       .filter((genre) => item.genre_ids.includes(genre.id))
@@ -16,29 +18,31 @@ const CardFilm = ({ item, genreList }) => {
 
     const splicedList = list.slice(0, 2)
 
-
     return list.length > 2
-      ? [...splicedList, 'Other'].join(', ')
+      ? [...splicedList, ''].join(', ')
       : splicedList.join(', ')
   }
 
-  
+  const checkPoster = item.poster_path
+    ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+    : '/src/assets/NotPoster.png'
 
-  const checkPoster = item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : '/src/assets/NotPoster.png'
 
   return (
-    <CardFilmWrapper>
-      <ImageStyle
-        src={checkPoster}
-        alt={item.title}
-      />
-      <FilmTitle>
-        <Marquee play={item.title.length > 25} speed={40}>
-          {item.title}
-        </Marquee>
-      </FilmTitle>
-      <p>Release Year: {new Date(item.release_date).getFullYear()}</p>
-      {item.genre_ids.length ? <p>Genre: {genres()}</p> : null}
+    <CardFilmWrapper onClick={() => {toggleModal(item)}}>
+      <ImageStyle src={checkPoster} alt={item.title} />
+      <FilmContent>
+        <FilmTitle>
+          <Marquee play={item.title.length > 25} speed={40}>
+            {item.title}
+          </Marquee>
+        </FilmTitle>
+        <FilmDescription>
+          {item.genre_ids.length ? genres() : ''}
+          <Divider />
+          {new Date(item.release_date).getFullYear()}
+        </FilmDescription>
+      </FilmContent>
     </CardFilmWrapper>
   )
 }

@@ -1,66 +1,75 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { HeaderWrapper, Link } from './Header.styled'
+import {
+  BtnChangeTheme,
+  BtnTheme,
+  ButtonSearch,
+  HeaderMain,
+  HeaderWrapper,
+  InputBar,
+  Link,
+  Logo,
+  LogoText,
+  NavMenu,
+  NavText,
+  SearchBar,
+  SearchIcon,
+  SignInLogIn,
+  SignIn,
+  LogIn,
+  SunIcon,
+} from './Header.styled'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
 
 const Header = ({ setQuery }) => {
   const [value, setValue] = useState('')
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      const elem = document.querySelector('.header-scroll')
-      const position = elem.getBoundingClientRect()
-
-      console.log(position)
-
-    })
-  }, [])
-  
-
   const handleSubmit = (event) => {
     event.preventDefault()
     setQuery(value)
-
   }
 
   return (
     <HeaderWrapper>
-      <header className="header_main">
-        <div className="logo">
+      <HeaderMain className="header_main">
+        <Logo className="logo">
           <img src="/public/FilmIcon.svg" />
-          <h1 className="logo-text">Filmoteka</h1>
-        </div>
+          <LogoText className="logo-text">Filmoteka</LogoText>
+        </Logo>
         <div className="search-sign">
-          <form className="search-bar" onSubmit={handleSubmit}>
-            <input
+          <SearchBar className="search-bar" onSubmit={handleSubmit}>
+            <InputBar
               type="search"
               className="input-bar"
               placeholder="Search Movie...."
               onChange={(e) => setValue(e.target.value)}
             />
-            <button className="button_search">
-              <img className="search_icon" src="/public/IconSearch.svg" />
-            </button>
-          </form>
+            <ButtonSearch className="button_search">
+              <SearchIcon
+                className="search_icon"
+                src="/public/IconSearch.svg"
+              />
+            </ButtonSearch>
+          </SearchBar>
         </div>
 
-        <div className="nav-menu">
-          <div className="nav-text">
+        <NavMenu className="nav-menu">
+          <NavText className="nav-text">
             <Link to="/">Home</Link>
             <Link to="/library">Library</Link>
-          </div>
-          <div className="btn-theme">
-            <button className="btn-change-theme">
-              <img src="/public/SunIcon.svg" />
-            </button>
-          </div>
-          <div className="sign_in-log_in">
-            {/* <button className="sign-in">Sign In</button> */}
-            <button className="log-in">Log In</button>
-          </div>
-        </div>
-      </header>
+          </NavText>
+          <BtnTheme className="btn-theme">
+            <BtnChangeTheme className="btn-change-theme">
+              <SunIcon src="/public/SunIcon.svg" />
+            </BtnChangeTheme>
+          </BtnTheme>
+          <SignInLogIn className="sign_in-log_in">
+            {/* <SignIn className="sign-in">Sign In</SignIn> */}
+            <LogIn className="log-in">Log In</LogIn>
+          </SignInLogIn>
+        </NavMenu>
+      </HeaderMain>
     </HeaderWrapper>
   )
 }

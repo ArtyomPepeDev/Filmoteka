@@ -34,7 +34,9 @@ const App = () => {
       const api_key = '3cfc4cc3ed7c09ed117ed148c7a04c75'
       axios
         .get(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`)
-        .then((response) => setFilms(response.data.results))
+        .then((response) => {
+          setFilms(response.data.results)
+        })
     }
   }, [])
 
