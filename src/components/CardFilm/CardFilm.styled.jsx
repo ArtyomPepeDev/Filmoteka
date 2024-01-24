@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CardFilmWrapper = styled.div`
-  max-width: 250px;
+  width: clamp(280px, 336px, 395px);
   padding: 10px;
 `
 export const FilmTitle = styled.h1`
@@ -25,7 +25,6 @@ export const FilmDescription = styled.p`
 `
 
 export const ImageStyle = styled.img`
-  max-width: 250px;
-  max-height: 400px;
+  width: clamp(280px, 5vw, 100%);
   border-radius: 10px;
 `

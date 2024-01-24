@@ -22,6 +22,8 @@ const CardFilm = ({ item, genreList }) => {
       : splicedList.join(', ')
   }
 
+  
+
   const checkPoster = item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : '/src/assets/NotPoster.png'
 
   return (

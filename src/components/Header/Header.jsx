@@ -6,8 +6,10 @@ import axios from 'axios'
 const Header = ({ setQuery }) => {
   const [value, setValue] = useState('')
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     setQuery(value)
+
   }
 
   return (
@@ -18,17 +20,17 @@ const Header = ({ setQuery }) => {
           <h1 className="logo-text">Filmoteka</h1>
         </div>
         <div className="search-sign">
-          <div className="search-bar">
+          <form className="search-bar" onSubmit={handleSubmit}>
             <input
               type="search"
               className="input-bar"
               placeholder="Search Movie...."
               onChange={(e) => setValue(e.target.value)}
             />
-            <button className="button_search" onClick={handleSubmit}>
+            <button className="button_search">
               <img className="search_icon" src="/public/IconSearch.svg" />
             </button>
-          </div>
+          </form>
         </div>
 
         <div className="nav-menu">

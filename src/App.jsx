@@ -5,6 +5,7 @@ import axios from 'axios'
 import CardList from './components/CardList/CardList'
 import './AppStyle.css'
 import Paginate from './components/Paginate/Paginate'
+import Container from './components/Container/Container'
 
 const App = () => {
   const [films, setFilms] = useState([])
@@ -25,11 +26,24 @@ const App = () => {
     fetchFilms()
   }, [page, query])
 
+  useEffect(() => {
+    if (films.length < 1) {
+      const api_key = '3cfc4cc3ed7c09ed117ed148c7a04c75'
+      axios
+        .get(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`)
+        .then((response) => setFilms(response.data.results))
+    }
+  }, [])
+
   return (
     <div>
       <Header setQuery={setQuery} />
-      <CardList list={films} />
-      <Paginate pageCount={pageCount} setPage={setPage} page={page} />
+      <Container>
+        <CardList list={films} />
+      </Container>
+      {films.length > 0 && (
+        <Paginate pageCount={pageCount} setPage={setPage} page={page} />
+      )}
     </div>
   )
 }
