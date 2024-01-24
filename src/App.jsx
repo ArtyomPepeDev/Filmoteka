@@ -6,6 +6,9 @@ import CardList from './components/CardList/CardList'
 import './AppStyle.css'
 import Paginate from './components/Paginate/Paginate'
 import Container from './components/Container/Container'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Library from './pages/Library'
 
 const App = () => {
   const [films, setFilms] = useState([])
@@ -37,6 +40,10 @@ const App = () => {
 
   return (
     <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/library" element={<Library />} />
+      </Routes>
       <Header setQuery={setQuery} />
       <Container>
         <CardList list={films} />

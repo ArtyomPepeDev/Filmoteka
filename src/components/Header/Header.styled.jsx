@@ -1,9 +1,24 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
+export const Link = styled(NavLink)`
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    transition: border-color 250ms ease-in-out;
+    border-bottom: 2px solid #ff001b;
+  }
+`
+
 export const HeaderWrapper = styled.div`
-  position: sticky;
-  top: 0;
-  z-index: 2;
   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap');
 
   * {
@@ -88,22 +103,6 @@ export const HeaderWrapper = styled.div`
     gap: 20px;
     align-items: center;
     justify-content: end;
-  }
-
-  #home {
-    color: #fff;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-transform: uppercase;
-  }
-
-  #home:hover {
-    transition: all 1s ease-in-out;
-    border-bottom: 2px solid #ff001b;
   }
 
   #library {

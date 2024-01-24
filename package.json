@@ -17,6 +17,7 @@
 		"react-dom": "^18.2.0",
 		"react-fast-marquee": "^1.6.3",
 		"react-paginate": "^8.2.0",
+		"react-router-dom": "^6.21.3",
 		"sass": "^1.62.0",
 		"styled-components": "^5.3.9",
 		"vite-plugin-svgr": "^4.2.0"
