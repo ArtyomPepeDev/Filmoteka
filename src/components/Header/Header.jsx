@@ -6,6 +6,17 @@ import axios from 'axios'
 const Header = ({ setQuery }) => {
   const [value, setValue] = useState('')
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const elem = document.querySelector('.header-scroll')
+      const position = elem.getBoundingClientRect()
+
+      console.log(position)
+
+    })
+  }, [])
+  
+
   const handleSubmit = (event) => {
     event.preventDefault()
     setQuery(value)
