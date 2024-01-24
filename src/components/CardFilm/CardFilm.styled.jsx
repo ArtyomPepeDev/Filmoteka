@@ -8,7 +8,7 @@ export const FilmTitle = styled.h1`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  color: #000;
+  color: #000;<p></p>
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;

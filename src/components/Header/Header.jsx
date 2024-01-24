@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { HeaderWrapper } from './Header.styled'
+import { HeaderWrapper, Link } from './Header.styled'
 import axios from 'axios'
+import { NavLink } from 'react-router-dom'
 
 const Header = ({ setQuery }) => {
   const [value, setValue] = useState('')
@@ -35,8 +36,8 @@ const Header = ({ setQuery }) => {
 
         <div className="nav-menu">
           <div className="nav-text">
-            <h2 id="home">Home</h2>
-            <h2 id="library">My Library</h2>
+            <Link to="/">Home</Link>
+            <Link to="/library">Library</Link>
           </div>
           <div className="btn-theme">
             <button className="btn-change-theme">
