@@ -16,7 +16,5 @@ export const ModalBackdrop = styled.div`
 `
 
 export const ModalWindow = styled.div`
-
-
   background-color: #fff;
 `
