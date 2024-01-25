@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 
 export const ModalFilmWrapper = styled.div``
 
-export const ModalStyle = styled(Modal)`
+export const ModalStyle = styled.div`
   display: flex;
   width: 806px;
   height: 758px;
@@ -28,5 +28,5 @@ export const InfoMoviePg = styled.div`
 
 export const InfoMovieStyle = styled.p`
   display: flex;
-  margin-left: 0, 50px;
+  margin-left: 0, 0px;
 `

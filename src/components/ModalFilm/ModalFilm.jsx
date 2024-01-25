@@ -9,19 +9,11 @@ import {
   InfoMovieStyle,
 } from './ModalFilm.styled'
 
-const ModalFilm = ({ film, toggleModal, genres }) => {
+const ModalFilm = ({ film, genres }) => {
   console.log(film)
   return (
-    <ModalFilmWrapper
-      style={{
-        overlay: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
-      }}
-    >
-      <ModalStyle isOpen={true} onRequestClose={toggleModal}>
+    <ModalFilmWrapper>
+      <ModalStyle>
         <ModalImg
           src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
           alt={film.title}

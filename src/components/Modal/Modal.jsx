@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import { ModalBackdrop, ModalWindow } from './Modal.styled'
+import {
+  ModalBackdrop,
+  ModalWindow,
+} from './Modal.styled'
 
 const Modal = ({ children, toggleModal }) => {
   const modalRoot = document.getElementById('modal-root')
