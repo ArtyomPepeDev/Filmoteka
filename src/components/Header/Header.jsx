@@ -20,10 +20,13 @@ import {
   SunIcon,
 } from './Header.styled'
 import axios from 'axios'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const Header = ({ setQuery }) => {
   const [value, setValue] = useState('')
+  const { pathname } = useLocation()
+
+  const showInput = pathname === '/'
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -38,20 +41,24 @@ const Header = ({ setQuery }) => {
           <LogoText className="logo-text">Filmoteka</LogoText>
         </Logo>
         <div className="search-sign">
-          <SearchBar className="search-bar" onSubmit={handleSubmit}>
-            <InputBar
-              type="search"
-              className="input-bar"
-              placeholder="Search Movie...."
-              onChange={(e) => setValue(e.target.value)}
-            />
-            <ButtonSearch className="button_search">
-              <SearchIcon
-                className="search_icon"
-                src="/public/IconSearch.svg"
+          {showInput ? (
+            <SearchBar className="search-bar" onSubmit={handleSubmit}>
+              <InputBar
+                type="search"
+                className="input-bar"
+                placeholder="Search Movie...."
+                onChange={(e) => setValue(e.target.value)}
               />
-            </ButtonSearch>
-          </SearchBar>
+              <ButtonSearch className="button_search">
+                <SearchIcon
+                  className="search_icon"
+                  src="/public/IconSearch.svg"
+                />
+              </ButtonSearch>
+            </SearchBar>
+          ) : (
+            <p>text</p>
+          )}
         </div>
 
         <NavMenu className="nav-menu">

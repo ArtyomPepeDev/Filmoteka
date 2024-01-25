@@ -15,6 +15,7 @@ const Modal = ({ children, toggleModal }) => {
     toggleModal()
   }
 
+
   return ReactDOM.createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
       <ModalWindow>{children}</ModalWindow>
