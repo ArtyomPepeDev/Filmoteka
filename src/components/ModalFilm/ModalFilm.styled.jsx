@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 import Modal from 'react-modal'
 
-export const ModalFilmWrapper = styled.div`
-`
+export const ModalFilmWrapper = styled.div``
 
 export const ModalStyle = styled(Modal)`
   display: flex;
   width: 806px;
-  height: 558px;
+  height: 758px;
 `
 
 export const ModalImg = styled.img`
@@ -18,13 +17,16 @@ export const ModalImg = styled.img`
 export const ModalInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 375px;
-  height: 480px;
+  width: 475px;
+  height: 580px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+`
 
+export const InfoMoviePg = styled.div`
+  display: flex;
+`
+
+export const InfoMovieStyle = styled.p`
+  display: flex;
+  margin-left: 0, 50px;
 `
