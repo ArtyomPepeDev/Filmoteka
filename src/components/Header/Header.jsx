@@ -35,25 +35,21 @@ const Header = ({ setQuery }) => {
 
   return (
     <HeaderWrapper>
-      <HeaderMain className="header_main">
-        <Logo className="logo">
+      <HeaderMain>
+        <Logo>
           <img src="/public/FilmIcon.svg" />
-          <LogoText className="logo-text">Filmoteka</LogoText>
+          <LogoText>Filmoteka</LogoText>
         </Logo>
-        <div className="search-sign">
+        <div>
           {showInput ? (
-            <SearchBar className="search-bar" onSubmit={handleSubmit}>
+            <SearchBar onSubmit={handleSubmit}>
               <InputBar
                 type="search"
-                className="input-bar"
                 placeholder="Search Movie...."
                 onChange={(e) => setValue(e.target.value)}
               />
-              <ButtonSearch className="button_search">
-                <SearchIcon
-                  className="search_icon"
-                  src="/public/IconSearch.svg"
-                />
+              <ButtonSearch>
+                <SearchIcon src="/public/IconSearch.svg" />
               </ButtonSearch>
             </SearchBar>
           ) : (
@@ -61,19 +57,19 @@ const Header = ({ setQuery }) => {
           )}
         </div>
 
-        <NavMenu className="nav-menu">
-          <NavText className="nav-text">
+        <NavMenu>
+          <NavText>
             <Link to="/">Home</Link>
             <Link to="/library">Library</Link>
           </NavText>
-          <BtnTheme className="btn-theme">
-            <BtnChangeTheme className="btn-change-theme">
+          <BtnTheme>
+            <BtnChangeTheme>
               <SunIcon src="/public/SunIcon.svg" />
             </BtnChangeTheme>
           </BtnTheme>
-          <SignInLogIn className="sign_in-log_in">
+          <SignInLogIn>
             {/* <SignIn className="sign-in">Sign In</SignIn> */}
-            <LogIn className="log-in">Log In</LogIn>
+            <LogIn>Log In</LogIn>
           </SignInLogIn>
         </NavMenu>
       </HeaderMain>
