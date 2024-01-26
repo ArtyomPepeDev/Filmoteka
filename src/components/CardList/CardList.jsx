@@ -38,7 +38,7 @@ const CardList = ({ list }) => {
       ))}
       {showModal && selectedFilm && (
         <Modal toggleModal={toggleModal} film={selectedFilm}>
-        <ModalFilm film={selectedFilm}/>
+        <ModalFilm film={selectedFilm} genreList={genreList}/>
         </Modal>
       )}
     </CardListWrapper>

@@ -4,12 +4,29 @@ import {
   ModalFilmWrapper,
   ModalImg,
   ModalInfo,
+  MovieInfoList,
   ModalStyle,
   InfoMoviePg,
+  MovieDescription,
   InfoMovieStyle,
+  ModalButton,
+  ButtonModalDiv,
+  VoteStyle,
+  VoteCount,
 } from './ModalFilm.styled'
 
-const ModalFilm = ({ film, genres }) => {
+const ModalFilm = ({ film, genreList }) => {
+  const genres = () => {
+    const list = genreList
+      .filter((genre) => film.genre_ids.includes(genre.id))
+      .map((genre) => genre.name)
+
+    const splicedList = list.slice(0, 2)
+
+    return list.length > 2
+      ? [...splicedList, ''].join(', ')
+      : splicedList.join(', ')
+  }
   console.log(film)
   return (
     <ModalFilmWrapper>
@@ -19,29 +36,40 @@ const ModalFilm = ({ film, genres }) => {
           alt={film.title}
         />
         <ModalInfo>
-          <h2>{film.title}</h2>
-          <InfoMoviePg>
-            <p>Vote/Votes</p>
-            <p>
-              {film.vote_average}/{film.vote_count}
-            </p>
-          </InfoMoviePg>
-          <InfoMoviePg>
-            <p>Popularity </p>
-            <InfoMovieStyle>{film.popularity} </InfoMovieStyle>
-          </InfoMoviePg>
-          <InfoMoviePg>
-            <p>Original Title</p>
-            <p>{film.original_title}</p>
-          </InfoMoviePg>
-          <InfoMoviePg>
-            <p>Genres</p>
-            {/* <p>{genres}</p> */}
-          </InfoMoviePg>
+          <MovieInfoList>
+            <h1>{film.title}</h1>
+            <InfoMoviePg>
+              <p>Vote/Votes</p>
+              <VoteCount>
+                <VoteStyle>{film.vote_average}</VoteStyle>/{film.vote_count}
+              </VoteCount>
+            </InfoMoviePg>
+            <InfoMoviePg>
+              <p>Popularity </p>
+              <InfoMovieStyle>{film.popularity} </InfoMovieStyle>
+            </InfoMoviePg>
+            <InfoMoviePg>
+              <p>Original Title</p>
+              <p>{film.original_title}</p>
+            </InfoMoviePg>
+            <InfoMoviePg>
+              <p>Genres</p>
+              <p>{genres()}</p>
+            </InfoMoviePg>
+          </MovieInfoList>
           <div>
             <h2>ABOUT</h2>
-            <p>{film.overview}</p>
+            <MovieDescription>{film.overview}</MovieDescription>
           </div>
+          <ButtonModalDiv>
+            <ModalButton>ADD TO WATCHED</ModalButton>
+            <ModalButton>ADD TO QUEUE</ModalButton>
+          </ButtonModalDiv>
+
+          <button>
+            <img src="/public/FilmIconLibrary.svg" />
+            VIEW TRAILER
+          </button>
         </ModalInfo>
       </ModalStyle>
     </ModalFilmWrapper>

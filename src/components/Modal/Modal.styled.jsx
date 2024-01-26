@@ -16,5 +16,15 @@ export const ModalBackdrop = styled.div`
 `
 
 export const ModalWindow = styled.div`
+  position: relative;
   background-color: #fff;
+`
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  outline: none;
 `
