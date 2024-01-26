@@ -4,6 +4,7 @@ import { CardListWrapper } from './CardList.styled'
 import CardFilm from '../CardFilm'
 import PropTypes from 'prop-types'
 import Modal from '../Modal/Modal'
+import ModalFilm from '../ModalFilm/ModalFilm'
 
 const CardList = ({ list }) => {
   const [genreList, setGenreList] = useState([])
@@ -36,7 +37,9 @@ const CardList = ({ list }) => {
         />
       ))}
       {showModal && selectedFilm && (
-        <Modal toggleModal={toggleModal} film={selectedFilm}></Modal>
+        <Modal toggleModal={toggleModal} film={selectedFilm}>
+        <ModalFilm film={selectedFilm} genreList={genreList}/>
+        </Modal>
       )}
     </CardListWrapper>
   )

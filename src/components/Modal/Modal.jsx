@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import { ModalBackdrop, ModalWindow } from './Modal.styled'
+import { ModalBackdrop, ModalWindow, CloseButton } from './Modal.styled'
 
 const Modal = ({ children, toggleModal }) => {
   const modalRoot = document.getElementById('modal-root')
@@ -12,10 +12,14 @@ const Modal = ({ children, toggleModal }) => {
     toggleModal()
   }
 
-
   return ReactDOM.createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalWindow>{children}</ModalWindow>
+      <ModalWindow>
+        {children}
+        <CloseButton onClick={toggleModal}>
+          <img src="/public/CloseIcon.svg" />
+        </CloseButton>
+      </ModalWindow>
     </ModalBackdrop>,
     modalRoot
   )
