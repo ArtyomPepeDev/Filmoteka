@@ -37,7 +37,7 @@ const CardFilm = ({ item, genreList, toggleModal }) => {
           </Marquee>
         </FilmTitle>
         <FilmDescription>
-          {item.genre_ids.length ? genres() : ''}
+          {item.genre_ids.length ? genres() : 'Unknown'}
           <Divider />
           {new Date(item.release_date).getFullYear()}
         </FilmDescription>

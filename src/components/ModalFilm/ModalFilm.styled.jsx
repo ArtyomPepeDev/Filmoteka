@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Modal from 'react-modal'
 
 export const ModalFilmWrapper = styled.div`
   border-radius: 10px;
@@ -24,9 +23,9 @@ export const ModalInfo = styled.div`
 `
 
 export const MovieInfoList = styled.div`
-display: flex;
-flex-direction: column;
-gap: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 `
 
 export const InfoMoviePg = styled.div`
@@ -36,8 +35,7 @@ export const InfoMoviePg = styled.div`
   padding: 0;
 `
 
-export const MovieDescription = styled.p`
-`
+export const MovieDescription = styled.p``
 
 export const VoteCount = styled.p`
   display: flex;
