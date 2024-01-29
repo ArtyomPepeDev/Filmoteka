@@ -63,7 +63,7 @@ const Header = ({ setQuery }) => {
           </NavText>
           <BtnTheme>
             <BtnChangeTheme>
-              <SunIcon src="public/SunIcon.svg" />
+              <SunIcon src="src/images/svg/SunIcon.svg" />
             </BtnChangeTheme>
           </BtnTheme>
           <SignInLogIn>
