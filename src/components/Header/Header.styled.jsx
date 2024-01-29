@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Link = styled(NavLink)`
@@ -12,9 +12,21 @@ export const Link = styled(NavLink)`
   text-transform: uppercase;
   text-decoration: none;
 
-  &:hover {
-    transition: border-color 250ms ease-in-out;
-    border-bottom: 2px solid #ff001b;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    background-color: #ff001b;
+    width: 100%;
+    height: 2px;
+    opacity: 0;
+
+    transition: opacity 150ms linear;
+  }
+
+  &:hover&::after {
+    opacity: 1;
   }
 `
 
@@ -41,7 +53,7 @@ export const Logo = styled.div`
   align-items: center;
 `
 
-export const LogoText = styled.h1`
+export const LogoText = styled(RouterLink)`
   color: #fff;
   text-align: center;
   font-family: Roboto;
@@ -50,6 +62,7 @@ export const LogoText = styled.h1`
   font-weight: 500;
   line-height: normal;
   text-align: center;
+  text-decoration: none;
   padding: 10px;
 `
 

@@ -37,7 +37,7 @@ const Header = ({ setQuery }) => {
       <HeaderMain>
         <Logo>
           <img src="/public/FilmIcon.svg" />
-          <LogoText><Link to='/'>Filmoteka</Link></LogoText>
+          <LogoText to='/'>Filmoteka</LogoText>
         </Logo>
         <div>
           {showInput ? (
@@ -50,6 +50,7 @@ const Header = ({ setQuery }) => {
               <ButtonSearch>
                 <SearchIcon src="/public/IconSearch.svg" />
               </ButtonSearch>
+      
             </SearchBar>
           ) : (
             <p>text</p>

@@ -15,6 +15,7 @@ export const ModalImgWrapper = styled.div`
 
 export const ModalImg = styled.img`
   width: 100%;
+  border-radius: 5px;
 `
 
 export const ModalMovieName = styled.h1`
