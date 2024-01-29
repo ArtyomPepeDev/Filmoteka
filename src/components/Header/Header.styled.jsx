@@ -54,9 +54,9 @@ export const SearchBar = styled.form`
 
 export const InputBar = styled.input`
   width: 100%;
-  height: 100%;
-  padding: 10px;
+  height: 20px;
   border-radius: 5px;
+  padding: 10px 2px;
   border: none;
   outline: none;
   background-color: rgba(255, 255, 255, 0.1);
@@ -134,7 +134,7 @@ export const BtnChangeTheme = styled.button`
 `
 
 export const SunIcon = styled.img`
-  width: 20px;
+  width: 15px;
   height: 20px;
 `
 

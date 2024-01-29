@@ -17,6 +17,7 @@ import {
   AboutStyle,
   ModalDescription,
   ButtonViewTrailer,
+  ButtonContainer,
 } from './ModalFilm.styled'
 import { getGenres, getPosterPath } from '../../utils'
 
@@ -39,7 +40,9 @@ const ModalFilm = ({ film, genreList }) => {
             <MovieInfoInner>
               <MovieInfoContent color="#8c8c8c">Vote / Votes</MovieInfoContent>
               <MovieInfoContent color="#8c8c8c">Popularity</MovieInfoContent>
-              <MovieInfoContent color="#8c8c8c">Original Title</MovieInfoContent>
+              <MovieInfoContent color="#8c8c8c">
+                Original Title
+              </MovieInfoContent>
               <MovieInfoContent color="#8c8c8c">Genres</MovieInfoContent>
             </MovieInfoInner>
             <MovieInfoInner>
@@ -58,15 +61,17 @@ const ModalFilm = ({ film, genreList }) => {
             <AboutStyle>ABOUT</AboutStyle>
             <MovieDescription>{film.overview}</MovieDescription>
           </ModalDescription>
-          <ButtonModalDiv>
-            <ModalButton>ADD TO WATCHED</ModalButton>
-            <ModalButton>ADD TO QUEUE</ModalButton>
-          </ButtonModalDiv>
+          <ButtonContainer>
+            <ButtonModalDiv>
+              <ModalButton>ADD TO WATCHED</ModalButton>
+              <ModalButton>ADD TO QUEUE</ModalButton>
+            </ButtonModalDiv>
 
-          <ButtonViewTrailer>
-            <img src="/public/FilmIconLibrary.svg" />
-            VIEW TRAILER
-          </ButtonViewTrailer>
+            <ButtonViewTrailer>
+              <img src="/public/FilmIconLibrary.svg" />
+              VIEW TRAILER
+            </ButtonViewTrailer>
+          </ButtonContainer>
         </ModalInfo>
       </ModalStyle>
     </ModalFilmWrapper>
