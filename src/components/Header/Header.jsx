@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import {
   BtnChangeTheme,
@@ -7,7 +7,7 @@ import {
   HeaderMain,
   HeaderWrapper,
   InputBar,
-  Link,
+  NavigationLink,
   Logo,
   LogoText,
   NavMenu,
@@ -19,7 +19,7 @@ import {
   LogIn,
   SunIcon,
 } from './Header.styled'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const Header = ({ setQuery }) => {
   const [value, setValue] = useState('')
@@ -37,7 +37,7 @@ const Header = ({ setQuery }) => {
       <HeaderMain>
         <Logo>
           <img src="/public/FilmIcon.svg" />
-          <LogoText to='/'>Filmoteka</LogoText>
+          <LogoText to="/">Filmoteka</LogoText>
         </Logo>
         <div>
           {showInput ? (
@@ -50,7 +50,6 @@ const Header = ({ setQuery }) => {
               <ButtonSearch>
                 <SearchIcon src="/public/IconSearch.svg" />
               </ButtonSearch>
-      
             </SearchBar>
           ) : (
             <p>text</p>
@@ -59,8 +58,8 @@ const Header = ({ setQuery }) => {
 
         <NavMenu>
           <NavText>
-            <Link to="/">Home</Link>
-            <Link to="/library">Library</Link>
+            <NavigationLink to="/">Home</NavigationLink>
+            <NavigationLink to="/library">Library</NavigationLink>
           </NavText>
           <BtnTheme>
             <BtnChangeTheme>
