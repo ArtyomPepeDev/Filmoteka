@@ -43,7 +43,7 @@ const App = () => {
       <Container>
         <CardList list={films} />
       </Container>
-      {films.length > 0 && (
+      {films.length > 0 && pageCount > 1 && (
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />
       )}
       <Footer />
