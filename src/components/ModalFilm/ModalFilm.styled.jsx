@@ -91,6 +91,12 @@ export const MovieInfoContent = styled.p`
   max-width: 200px;
 `
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+`
+
 export const ButtonModalDiv = styled.div`
   display: flex;
   gap: 30px;
