@@ -17,7 +17,7 @@ const Modal = ({ children, toggleModal }) => {
       <ModalWindow>
         {children}
         <CloseButton onClick={toggleModal}>
-          <img src="/public/CloseIcon.svg" />
+          <img src="/images/svg/CloseIcon.svg" />
         </CloseButton>
       </ModalWindow>
     </ModalBackdrop>,

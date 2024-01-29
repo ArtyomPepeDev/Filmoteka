@@ -36,7 +36,7 @@ const Header = ({ setQuery }) => {
     <HeaderWrapper>
       <HeaderMain>
         <Logo>
-          <img src="/public/FilmIcon.svg" />
+          <img src="/images/svg/FilmIcon.svg" />
           <LogoText to="/">Filmoteka</LogoText>
         </Logo>
         <div>
@@ -48,7 +48,7 @@ const Header = ({ setQuery }) => {
                 onChange={(e) => setValue(e.target.value)}
               />
               <ButtonSearch>
-                <SearchIcon src="/public/IconSearch.svg" />
+                <SearchIcon src="/images/svg/IconSearch.svg" />
               </ButtonSearch>
             </SearchBar>
           ) : (
@@ -63,7 +63,7 @@ const Header = ({ setQuery }) => {
           </NavText>
           <BtnTheme>
             <BtnChangeTheme>
-              <SunIcon src="src/images/svg/SunIcon.svg" />
+              <SunIcon src="/images/svg/SunIcon.svg" />
             </BtnChangeTheme>
           </BtnTheme>
           <SignInLogIn>
