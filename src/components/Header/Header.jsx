@@ -37,7 +37,7 @@ const Header = ({ setQuery, isError }) => {
     <HeaderWrapper>
       <HeaderMain>
         <Logo>
-          <img src="/public/FilmIcon.svg" />
+          <img src="/images/svg/FilmIcon.svg" />
           <LogoText to="/">Filmoteka</LogoText>
         </Logo>
         <div>
@@ -50,7 +50,7 @@ const Header = ({ setQuery, isError }) => {
                 onChange={(e) => setValue(e.target.value)}
               />
               <ButtonSearch>
-                <SearchIcon src="/public/IconSearch.svg" />
+                <SearchIcon src="/images/svg/IconSearch.svg" />
               </ButtonSearch>
             </SearchBar>
             {isError && <p>Search result not successful. Enter the correct movie name and try again. </p>}</>
@@ -66,7 +66,7 @@ const Header = ({ setQuery, isError }) => {
           </NavText>
           <BtnTheme>
             <BtnChangeTheme>
-              <SunIcon src="./public/SunIcon.svg" />
+              <SunIcon src="/images/svg/SunIcon.svg" />
             </BtnChangeTheme>
           </BtnTheme>
           <SignInLogIn>

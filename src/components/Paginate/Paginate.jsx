@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { PaginateWrapper } from './Paginate.styled'
 import ReactPaginate from 'react-paginate'
-import ArrowLeft from '../../../public/arrow-left.svg?react'
-import ArrowRight from '../../../public/arrow-right.svg?react'
+import ArrowLeft from '/public/images/svg/arrow-left.svg?react'
+import ArrowRight from '/public/images/svg/arrow-right.svg?react'
 
 const Paginate = ({ pageCount, setPage, page }) => {
   const handleChangePage = (value) => {

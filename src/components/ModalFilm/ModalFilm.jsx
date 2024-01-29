@@ -68,7 +68,7 @@ const ModalFilm = ({ film, genreList }) => {
             </ButtonModalDiv>
 
             <ButtonViewTrailer>
-              <img src="/public/FilmIconLibrary.svg" />
+              <img src="src/public/images/FilmIconLibrary.svg" />
               VIEW TRAILER
             </ButtonViewTrailer>
           </ButtonContainer>
