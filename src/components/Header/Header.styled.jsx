@@ -1,34 +1,5 @@
-import { NavLink, Link as RouterLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import styled from 'styled-components'
-
-export const Link = styled(NavLink)`
-  color: #fff;
-  text-align: center;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    right: 0;
-    background-color: #ff001b;
-    width: 100%;
-    height: 2px;
-    opacity: 0;
-
-    transition: opacity 150ms linear;
-  }
-
-  &:hover&::after {
-    opacity: 1;
-  }
-`
 
 export const HeaderWrapper = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap');
@@ -48,12 +19,13 @@ export const HeaderMain = styled.header`
   );
 `
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
   align-items: center;
+  text-decoration: none;
 `
 
-export const LogoText = styled(RouterLink)`
+export const LogoText = styled.span`
   color: #fff;
   text-align: center;
   font-family: Roboto;
@@ -117,6 +89,28 @@ export const NavText = styled.div`
   gap: 20px;
   align-items: center;
   justify-content: end;
+`
+
+export const NavigationLink = styled(NavLink)`
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &.active {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: 0;
+      background-color: #ff001b;
+      width: 100%;
+      height: 2px;
+    }
+  }
 `
 
 export const BtnTheme = styled.div`
