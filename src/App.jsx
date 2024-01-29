@@ -1,10 +1,11 @@
-import Header from './components/Header/Header'
+import Header from './components/Header'
+import Paginate from './components/Paginate'
+import Container from './components/Container'
+import Footer from './components/Footer'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import CardList from './components/CardList/CardList'
+import CardList from './components/CardList'
 import './AppStyle.css'
-import Paginate from './components/Paginate/Paginate'
-import Container from './components/Container/Container'
 
 const App = () => {
   const [films, setFilms] = useState([])
@@ -45,6 +46,7 @@ const App = () => {
       {films.length > 0 && (
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />
       )}
+      <Footer />
     </div>
   )
 }
