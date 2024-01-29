@@ -17,23 +17,11 @@ import {
   AboutStyle,
   ModalDescription,
 } from './ModalFilm.styled'
+import { getGenres, getPosterPath } from '../../utils'
 
 const ModalFilm = ({ film, genreList }) => {
-  const genres = () => {
-    const list = genreList
-      .filter((genre) => film.genre_ids.includes(genre.id))
-      .map((genre) => genre.name)
-
-    const splicedList = list.slice(0, 2)
-
-    return list.length > 2
-      ? [...splicedList, ''].join(', ')
-      : splicedList.join(', ')
-  }
-
-  const checkPoster = film.poster_path
-    ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
-    : '/src/assets/NotPoster.png'
+  const genres = getGenres(genreList, film.genre_ids)
+  const posterPath = getPosterPath(film.poster_path)
 
   const voteAverage = film.vote_average
 
@@ -42,7 +30,7 @@ const ModalFilm = ({ film, genreList }) => {
     <ModalFilmWrapper>
       <ModalStyle>
         <ModalImgWrapper>
-          <ModalImg src={checkPoster} alt={film.title} />
+          <ModalImg src={posterPath} alt={film.title} />
         </ModalImgWrapper>
         <ModalInfo>
           <ModalMovieName>{film.title}</ModalMovieName>
@@ -59,8 +47,10 @@ const ModalFilm = ({ film, genreList }) => {
                 <VoteStyle isTotalVotes>{film.vote_count}</VoteStyle>
               </MovieInfoContent>
               <MovieInfoContent>{film.popularity.toFixed(0)}</MovieInfoContent>
-              <MovieInfoContent>{film.original_title.toUpperCase()}</MovieInfoContent>
-              <MovieInfoContent>{genres()}</MovieInfoContent>
+              <MovieInfoContent>
+                {film.original_title.toUpperCase()}
+              </MovieInfoContent>
+              <MovieInfoContent>{genres}</MovieInfoContent>
             </MovieInfoInner>
           </MovieInfoList>
           <ModalDescription>
