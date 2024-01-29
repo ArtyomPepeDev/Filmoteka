@@ -10,6 +10,7 @@ export const ModalStyle = styled.div`
 
 export const ModalImgWrapper = styled.div`
   width: 375px;
+  margin-right: 16px;
 `
 
 export const ModalImg = styled.img`
@@ -86,12 +87,12 @@ export const MovieInfoContent = styled.p`
   gap: 5px;
   font-weight: 500;
   color: ${(props) => props.color};
+  max-width: 200px;
 `
 
 export const ButtonModalDiv = styled.div`
   display: flex;
   gap: 30px;
-  margin: 20px 10px;
 `
 
 export const ModalButton = styled.button`
@@ -106,6 +107,28 @@ export const ModalButton = styled.button`
   text-transform: uppercase;
   border-radius: 10px;
   border: 1px solid #000;
+  outline: none;
+  cursor: pointer;
+`
+
+export const ButtonViewTrailer = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 310px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 133.333% */
+  text-transform: uppercase;
+  border-radius: 5px;
+  background: #ff6b01;
+  border: none;
   outline: none;
   cursor: pointer;
 `

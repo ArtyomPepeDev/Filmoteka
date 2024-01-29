@@ -16,6 +16,7 @@ import {
   MovieInfoInner,
   AboutStyle,
   ModalDescription,
+  ButtonViewTrailer,
 } from './ModalFilm.styled'
 import { getGenres, getPosterPath } from '../../utils'
 
@@ -37,9 +38,9 @@ const ModalFilm = ({ film, genreList }) => {
           <MovieInfoList>
             <MovieInfoInner>
               <MovieInfoContent color="#8c8c8c">Vote / Votes</MovieInfoContent>
-              <MovieInfoContent>Popularity</MovieInfoContent>
-              <MovieInfoContent>Original Title</MovieInfoContent>
-              <MovieInfoContent>Genres</MovieInfoContent>
+              <MovieInfoContent color="#8c8c8c">Popularity</MovieInfoContent>
+              <MovieInfoContent color="#8c8c8c">Original Title</MovieInfoContent>
+              <MovieInfoContent color="#8c8c8c">Genres</MovieInfoContent>
             </MovieInfoInner>
             <MovieInfoInner>
               <MovieInfoContent>
@@ -62,10 +63,10 @@ const ModalFilm = ({ film, genreList }) => {
             <ModalButton>ADD TO QUEUE</ModalButton>
           </ButtonModalDiv>
 
-          <ModalButton>
+          <ButtonViewTrailer>
             <img src="/public/FilmIconLibrary.svg" />
             VIEW TRAILER
-          </ModalButton>
+          </ButtonViewTrailer>
         </ModalInfo>
       </ModalStyle>
     </ModalFilmWrapper>
