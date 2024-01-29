@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <div>
-      <Header setQuery={setQuery} />
+      <Header setQuery={setQuery} isError={films.length < 1 && !query } />
       <Container>
         <CardList list={films} />
       </Container>

@@ -21,7 +21,8 @@ import {
 } from './Header.styled'
 import { useLocation } from 'react-router-dom'
 
-const Header = ({ setQuery }) => {
+const Header = ({ setQuery, isError }) => {
+  console.log(isError)
   const [value, setValue] = useState('')
   const { pathname } = useLocation()
 
@@ -41,6 +42,7 @@ const Header = ({ setQuery }) => {
         </Logo>
         <div>
           {showInput ? (
+            <>
             <SearchBar onSubmit={handleSubmit}>
               <InputBar
                 type="search"
@@ -51,6 +53,7 @@ const Header = ({ setQuery }) => {
                 <SearchIcon src="/public/IconSearch.svg" />
               </ButtonSearch>
             </SearchBar>
+            {isError && <p>Search result not successful. Enter the correct movie name and try again. </p>}</>
           ) : (
             <p>text</p>
           )}
