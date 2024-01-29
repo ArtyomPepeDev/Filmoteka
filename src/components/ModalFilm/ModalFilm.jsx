@@ -6,13 +6,16 @@ import {
   ModalInfo,
   MovieInfoList,
   ModalStyle,
-  InfoMoviePg,
   MovieDescription,
-  InfoMovieStyle,
   ModalButton,
   ButtonModalDiv,
   VoteStyle,
-  VoteCount,
+  ModalImgWrapper,
+  ModalMovieName,
+  MovieInfoContent,
+  MovieInfoInner,
+  AboutStyle,
+  ModalDescription,
 } from './ModalFilm.styled'
 
 const ModalFilm = ({ film, genreList }) => {
@@ -27,49 +30,52 @@ const ModalFilm = ({ film, genreList }) => {
       ? [...splicedList, ''].join(', ')
       : splicedList.join(', ')
   }
+
+  const checkPoster = film.poster_path
+    ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
+    : '/src/assets/NotPoster.png'
+
+  const voteAverage = film.vote_average
+
   console.log(film)
   return (
     <ModalFilmWrapper>
       <ModalStyle>
-        <ModalImg
-          src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
-          alt={film.title}
-        />
+        <ModalImgWrapper>
+          <ModalImg src={checkPoster} alt={film.title} />
+        </ModalImgWrapper>
         <ModalInfo>
+          <ModalMovieName>{film.title}</ModalMovieName>
           <MovieInfoList>
-            <h1>{film.title}</h1>
-            <InfoMoviePg>
-              <p>Vote/Votes</p>
-              <VoteCount>
-                <VoteStyle>{film.vote_average}</VoteStyle>/{film.vote_count}
-              </VoteCount>
-            </InfoMoviePg>
-            <InfoMoviePg>
-              <p>Popularity </p>
-              <InfoMovieStyle>{film.popularity} </InfoMovieStyle>
-            </InfoMoviePg>
-            <InfoMoviePg>
-              <p>Original Title</p>
-              <p>{film.original_title}</p>
-            </InfoMoviePg>
-            <InfoMoviePg>
-              <p>Genres</p>
-              <p>{genres()}</p>
-            </InfoMoviePg>
+            <MovieInfoInner>
+              <MovieInfoContent color="#8c8c8c">Vote / Votes</MovieInfoContent>
+              <MovieInfoContent>Popularity</MovieInfoContent>
+              <MovieInfoContent>Original Title</MovieInfoContent>
+              <MovieInfoContent>Genres</MovieInfoContent>
+            </MovieInfoInner>
+            <MovieInfoInner>
+              <MovieInfoContent>
+                <VoteStyle>{voteAverage.toFixed(1)}</VoteStyle>/
+                <VoteStyle isTotalVotes>{film.vote_count}</VoteStyle>
+              </MovieInfoContent>
+              <MovieInfoContent>{film.popularity.toFixed(0)}</MovieInfoContent>
+              <MovieInfoContent>{film.original_title.toUpperCase()}</MovieInfoContent>
+              <MovieInfoContent>{genres()}</MovieInfoContent>
+            </MovieInfoInner>
           </MovieInfoList>
-          <div>
-            <h2>ABOUT</h2>
+          <ModalDescription>
+            <AboutStyle>ABOUT</AboutStyle>
             <MovieDescription>{film.overview}</MovieDescription>
-          </div>
+          </ModalDescription>
           <ButtonModalDiv>
             <ModalButton>ADD TO WATCHED</ModalButton>
             <ModalButton>ADD TO QUEUE</ModalButton>
           </ButtonModalDiv>
 
-          <button>
+          <ModalButton>
             <img src="/public/FilmIconLibrary.svg" />
             VIEW TRAILER
-          </button>
+          </ModalButton>
         </ModalInfo>
       </ModalStyle>
     </ModalFilmWrapper>

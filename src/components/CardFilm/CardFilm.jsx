@@ -39,7 +39,7 @@ const CardFilm = ({ item, genreList, toggleModal }) => {
         <FilmDescription>
           {item.genre_ids.length ? genres() : 'Unknown'}
           <Divider />
-          {new Date(item.release_date).getFullYear()}
+          {item.release_date ? new Date(item.release_date).getFullYear(): "Unknown"}
         </FilmDescription>
       </FilmContent>
     </CardFilmWrapper>

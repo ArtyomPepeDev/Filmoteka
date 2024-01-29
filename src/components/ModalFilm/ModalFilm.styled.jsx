@@ -8,51 +8,84 @@ export const ModalStyle = styled.div`
   display: flex;
 `
 
-export const ModalImg = styled.img`
-  padding: 20px 20px;
+export const ModalImgWrapper = styled.div`
   width: 375px;
-  max-height: 478px;
 `
 
+export const ModalImg = styled.img`
+  width: 100%;
+`
+
+export const ModalMovieName = styled.h1`
+  width: 400px;
+  color: #000;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+`
 export const ModalInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 475px;
-  height: 580px;
-  padding: 20px;
+  gap: 20px;
 `
 
 export const MovieInfoList = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 0;
-`
-
-export const InfoMoviePg = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-`
-
-export const MovieDescription = styled.p``
-
-export const VoteCount = styled.p`
-  display: flex;
   align-items: center;
+  gap: 100px;
+`
+
+export const AboutStyle = styled.h2`
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+`
+export const ModalDescription = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 `
 
-export const VoteStyle = styled.span`
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  background: #ff6b01;
+export const MovieDescription = styled.p`
+  width: 391px;
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
 `
 
-export const InfoMovieStyle = styled.p`
+export const VoteStyle = styled.span`
+  display: inline-block;
+  text-align: center;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background: ${(props) => (props.isTotalVotes ? '#f7f7f7' : '#FF6B01')};
+  color: ${(props) => (props.isTotalVotes ? '#000' : '#fff')};
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+`
+
+export const MovieInfoInner = styled.div`
   display: flex;
-  margin-left: 0, 0px;
+  flex-direction: column;
+  gap: 20px;
+`
+
+export const MovieInfoContent = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  color: ${(props) => props.color};
 `
 
 export const ButtonModalDiv = styled.div`

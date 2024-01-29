@@ -42,9 +42,13 @@ export const Logo = styled.div`
 `
 
 export const LogoText = styled.h1`
-  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
   font-size: 30px;
-  color: white;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   text-align: center;
   padding: 10px;
 `

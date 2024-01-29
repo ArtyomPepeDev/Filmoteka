@@ -19,7 +19,6 @@ import {
   LogIn,
   SunIcon,
 } from './Header.styled'
-import axios from 'axios'
 import { NavLink, useLocation } from 'react-router-dom'
 
 const Header = ({ setQuery }) => {
@@ -38,7 +37,7 @@ const Header = ({ setQuery }) => {
       <HeaderMain>
         <Logo>
           <img src="/public/FilmIcon.svg" />
-          <LogoText>Filmoteka</LogoText>
+          <LogoText><Link to='/'>Filmoteka</Link></LogoText>
         </Logo>
         <div>
           {showInput ? (
