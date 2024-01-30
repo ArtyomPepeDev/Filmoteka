@@ -22,19 +22,18 @@ import {
   ButtonQueue,
   LibraryButtons,
 } from './Header.styled'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 
-const Header = ({ setQuery, isError }) => {
-  console.log(isError)
+const Header = ({ isError }) => {
   const [value, setValue] = useState('')
-  // const [changeTag, setChangeTag] = useState(false)
   const { pathname } = useLocation()
+  const [_, setSearchParams] = useSearchParams()
 
   const showInput = pathname === '/'
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setQuery(value)
+    setSearchParams({ query: value })
   }
 
   return (

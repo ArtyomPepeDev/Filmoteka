@@ -3,11 +3,11 @@ import Paginate from './components/Paginate'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import CardList from './components/CardList'
 import './AppStyle.css'
 import { fetchByQuery, fetchPopular } from './services/fetchFilms'
 import Skeleton from './components/Skeleton'
+import { useSearchParams } from 'react-router-dom'
 
 const App = () => {
   const [films, setFilms] = useState([])
@@ -15,22 +15,22 @@ const App = () => {
   const [isError, setIsError] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const [page, setPage] = useState(1)
-  const [query, setQuery] = useState('')
+  const [searchParams] = useSearchParams()
+  const query = searchParams.get('query')
+  console.log('query: ', query)
 
   useEffect(() => {
-    if (query) {
-      const fetchFilms = async () => {
-        const response = await fetchByQuery(query, page)
-        setFilms(response)
-        setPageCount(response)
-        if (response.length < 1) {
-          setIsError(true)
-          return
-        }
-        setIsError(false)
+    const fetchFilms = async () => {
+      const response = await fetchByQuery(query, page)
+      setFilms(response)
+      setPageCount(response)
+      if (response.length < 1) {
+        setIsError(true)
+        return
       }
-      fetchFilms()
+      setIsError(false)
     }
+    fetchFilms()
   }, [page, query])
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <div>
-      <Header setQuery={setQuery} isError={isError} />
+      <Header isError={isError} />
       <Container>
         {isLoading ? <Skeleton /> : <CardList list={films} />}
       </Container>
