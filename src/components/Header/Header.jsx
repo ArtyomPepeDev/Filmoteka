@@ -43,17 +43,23 @@ const Header = ({ setQuery, isError }) => {
         <div>
           {showInput ? (
             <>
-            <SearchBar onSubmit={handleSubmit}>
-              <InputBar
-                type="search"
-                placeholder="Search Movie...."
-                onChange={(e) => setValue(e.target.value)}
-              />
-              <ButtonSearch>
-                <SearchIcon src="/images/svg/IconSearch.svg" />
-              </ButtonSearch>
-            </SearchBar>
-            {isError && <p>Search result not successful. Enter the correct movie name and try again. </p>}</>
+              <SearchBar onSubmit={handleSubmit}>
+                <InputBar
+                  type="search"
+                  placeholder="Search Movie...."
+                  onChange={(e) => setValue(e.target.value)}
+                />
+                <ButtonSearch>
+                  <SearchIcon src="/images/svg/IconSearch.svg" />
+                </ButtonSearch>
+              </SearchBar>
+              {isError && (
+                <p>
+                  Search result not successful. Enter the correct movie name and
+                  try again.{' '}
+                </p>
+              )}
+            </>
           ) : (
             <p>text</p>
           )}
