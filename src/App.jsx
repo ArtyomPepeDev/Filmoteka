@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CardList from './components/CardList'
 import './AppStyle.css'
+import Skeleton from './components/Skeleton'
 
 const App = () => {
   const [films, setFilms] = useState([])
@@ -41,7 +42,7 @@ const App = () => {
     <div>
       <Header setQuery={setQuery} isError={films.length < 1 && !query } />
       <Container>
-        <CardList list={films} />
+        {isLoading ? <Skeleton/> : <CardList list={films} />}
       </Container>
       {films.length > 0 && pageCount > 1 && (
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />
