@@ -40,9 +40,9 @@ const Header = ({ setQuery, isError }) => {
   return (
     <HeaderWrapper>
       <HeaderMain>
-        <Logo>
+        <Logo to="/">
           <img src="/images/svg/FilmIcon.svg" />
-          <LogoText to="/">Filmoteka</LogoText>
+          <LogoText>Filmoteka</LogoText>
         </Logo>
         <div>
           {showInput ? (
