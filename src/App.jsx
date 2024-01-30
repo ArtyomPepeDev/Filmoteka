@@ -7,11 +7,13 @@ import axios from 'axios'
 import CardList from './components/CardList'
 import './AppStyle.css'
 import { fetchPopular } from './services/fetchFilms'
+import Skeleton from './components/Skeleton'
 
 const App = () => {
   const [films, setFilms] = useState([])
   const [pageCount, setPageCount] = useState(0)
   const [isError, setIsError] = useState(false)
+  const [isLoading, setLoading] = useState(false)
   const [page, setPage] = useState(1)
   const [query, setQuery] = useState('')
 
@@ -35,7 +37,8 @@ const App = () => {
 
   useEffect(() => {
     if (films.length < 1) {
-      fetchPopular().then((data) => setFilms(data))
+      setLoading(true)
+      fetchPopular().then((data) => setFilms(data)).finally(() => setLoading(false))
     }
   }, [])
 
