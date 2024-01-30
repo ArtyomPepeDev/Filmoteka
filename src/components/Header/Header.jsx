@@ -58,7 +58,7 @@ const Header = ({ setQuery, isError }) => {
                 </ButtonSearch>
               </SearchBar>
               {isError && (
-                <p>
+                <p style={{ color: 'red' }}>
                   Search result not successful. Enter the correct movie name and
                   try again.{' '}
                 </p>

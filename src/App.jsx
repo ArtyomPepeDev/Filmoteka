@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CardList from './components/CardList'
 import './AppStyle.css'
-import { fetchPopular } from './services/fetchFilms'
+import { fetchByQuery, fetchPopular } from './services/fetchFilms'
 import Skeleton from './components/Skeleton'
 
 const App = () => {
@@ -17,28 +17,28 @@ const App = () => {
   const [page, setPage] = useState(1)
   const [query, setQuery] = useState('')
 
-  const fetchFilms = async () => {
-    const api_key = '3cfc4cc3ed7c09ed117ed148c7a04c75'
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}&api_key=${api_key}`
-    )
-    setFilms(response.data.results)
-    setPageCount(response.data.total_pages)
-    if (response.data.results.length < 1) {
-      setIsError(true)
-    } else {
-      setIsError(false)
-    }
-  }
-
   useEffect(() => {
-    fetchFilms()
+    if (query) {
+      const fetchFilms = async () => {
+        const response = await fetchByQuery(query, page)
+        setFilms(response)
+        setPageCount(response)
+        if (response.length < 1) {
+          setIsError(true)
+          return
+        }
+        setIsError(false)
+      }
+      fetchFilms()
+    }
   }, [page, query])
 
   useEffect(() => {
     if (films.length < 1) {
       setLoading(true)
-      fetchPopular().then((data) => setFilms(data)).finally(() => setLoading(false))
+      fetchPopular()
+        .then((data) => setFilms(data))
+        .finally(() => setLoading(false))
     }
   }, [])
 
@@ -46,7 +46,7 @@ const App = () => {
     <div>
       <Header setQuery={setQuery} isError={isError} />
       <Container>
-        {isLoading ? <Skeleton/> : <CardList list={films} />}
+        {isLoading ? <Skeleton /> : <CardList list={films} />}
       </Container>
       {films.length > 0 && pageCount > 1 && (
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />

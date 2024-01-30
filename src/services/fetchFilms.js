@@ -11,9 +11,9 @@ export const fetchPopular = async () => {
   return data.results
 }
 
-export const fetchByQuery = async (query) => {
+export const fetchByQuery = async (query, page) => {
   const { data } = await axios.get(
-    `${baseUrl}/search/movie?api_key=${api_key}&query=${query}`
+    `${baseUrl}/search/movie?api_key=${api_key}&query=${query}&page=${page}`
   )
 
   return data.results
