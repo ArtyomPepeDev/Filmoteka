@@ -18,12 +18,16 @@ import {
   SignIn,
   LogIn,
   SunIcon,
+  ButtonWatched,
+  ButtonQueue,
+  LibraryButtons,
 } from './Header.styled'
 import { useLocation } from 'react-router-dom'
 
 const Header = ({ setQuery, isError }) => {
   console.log(isError)
   const [value, setValue] = useState('')
+  // const [changeTag, setChangeTag] = useState(false)
   const { pathname } = useLocation()
 
   const showInput = pathname === '/'
@@ -61,7 +65,10 @@ const Header = ({ setQuery, isError }) => {
               )}
             </>
           ) : (
-            <p>text</p>
+            <LibraryButtons>
+              <ButtonWatched>Watched</ButtonWatched>
+              <ButtonQueue>Queue</ButtonQueue>
+            </LibraryButtons>
           )}
         </div>
 

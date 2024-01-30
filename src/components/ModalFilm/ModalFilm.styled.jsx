@@ -103,10 +103,11 @@ export const ButtonModalDiv = styled.div`
 `
 
 export const ModalButton = styled.button`
-  width: 140px;
-  height: 50px;
+  width: 150px;
+  height: 44px;
   color: #000;
   text-align: center;
+  font-family: Roboto;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -123,7 +124,7 @@ export const ButtonViewTrailer = styled.button`
   align-items: center;
   justify-content: center;
   gap: 7px;
-  width: 310px;
+  width: 330px;
   height: 50px;
   color: #fff;
   text-align: center;

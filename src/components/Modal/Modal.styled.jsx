@@ -19,6 +19,7 @@ export const ModalWindow = styled.div`
   position: relative;
   background-color: #fff;
   padding: 40px 12px;
+  border-radius: 50px 10px 50px 10px;
 `
 
 export const CloseButton = styled.button`

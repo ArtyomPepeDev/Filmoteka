@@ -186,3 +186,49 @@ export const LogIn = styled.button`
   background: #2b3030;
   cursor: pointer;
 `
+
+export const ButtonWatched = styled.button`
+  width: 148px;
+  height: 42px;
+  border-radius: 5px;
+  background: #ff6b01;
+  border: none;
+  outline: none;
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background: #ff6b01;
+    box-shadow: 0 0 5px #ac6c3e, 0 0 20px #ac6c3e, 0 0 20px #ac6c3e,
+      0 0 20px #ac6c3e;
+  }
+`
+
+export const ButtonQueue = styled.button`
+  width: 148px;
+  height: 42px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  outline: none;
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  background: transparent;
+`
+
+export const LibraryButtons = styled.div`
+  display: flex;
+  gap: 20px;
+`
