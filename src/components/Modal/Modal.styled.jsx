@@ -29,4 +29,11 @@ export const CloseButton = styled.button`
   background: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
+
+  transition: color 100ms linear;
+
+  &:hover {
+    color: #ff6b01;
+  }
 `
