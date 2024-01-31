@@ -24,7 +24,7 @@ import {
 } from './Header.styled'
 import { useLocation, useSearchParams } from 'react-router-dom'
 
-const Header = ({ isError }) => {
+const Header = ({ isError, setAuthOpen }) => {
   const [value, setValue] = useState('')
   const { pathname } = useLocation()
   const [_, setSearchParams] = useSearchParams()
@@ -83,7 +83,7 @@ const Header = ({ isError }) => {
           </BtnTheme>
           <SignInLogIn>
             {/* <SignIn className="sign-in">Sign In</SignIn> */}
-            <LogIn>Log In</LogIn>
+            <LogIn onClick={() => setAuthOpen(true)}>Log In</LogIn>
           </SignInLogIn>
         </NavMenu>
       </HeaderMain>
