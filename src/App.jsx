@@ -16,10 +16,10 @@ const App = () => {
   const [isError, setIsError] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const [isAuthOpen, setAuthOpen] = useState(false)
+  const [isLoading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
   const [searchParams] = useSearchParams()
   const query = searchParams.get('query')
-  console.log('query: ', query)
 
   const toggleAuth = () => {
     setAuthOpen(prevState => !prevState)

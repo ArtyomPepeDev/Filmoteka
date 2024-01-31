@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import SunIcon from '/public/images/svg/SunIcon.svg?react'
+import MoonIcon from '/public/images/svg/MoonIcon.svg?react'
 import {
-  BtnChangeTheme,
+  ThemeSwitcher,
+  ThemeSwitcherThumb,
+  ThemeSwitcherInput,
   BtnTheme,
   ButtonSearch,
   HeaderMain,
@@ -17,7 +21,7 @@ import {
   SignInLogIn,
   SignIn,
   LogIn,
-  SunIcon,
+  // SunIcon,
   ButtonWatched,
   ButtonQueue,
   LibraryButtons,
@@ -26,6 +30,7 @@ import { useLocation, useSearchParams } from 'react-router-dom'
 
 const Header = ({ isError, setAuthOpen }) => {
   const [value, setValue] = useState('')
+  const [isChecked, setIsChecked] = useState(false)
   const { pathname } = useLocation()
   const [_, setSearchParams] = useSearchParams()
 
@@ -34,6 +39,10 @@ const Header = ({ isError, setAuthOpen }) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     setSearchParams({ query: value })
+  }
+
+  const handleThemeSwitch = (event) => {
+    setIsChecked(event.target.checked)
   }
 
   return (
@@ -77,9 +86,15 @@ const Header = ({ isError, setAuthOpen }) => {
             <NavigationLink to="/library">Library</NavigationLink>
           </NavText>
           <BtnTheme>
-            <BtnChangeTheme>
-              <SunIcon src="/images/svg/SunIcon.svg" />
-            </BtnChangeTheme>
+            <ThemeSwitcher>
+              <ThemeSwitcherInput
+                type="checkbox"
+                onChange={handleThemeSwitch}
+              />
+              <ThemeSwitcherThumb isChecked={isChecked}>
+                {isChecked ? <MoonIcon /> : <SunIcon />}
+              </ThemeSwitcherThumb>
+            </ThemeSwitcher>
           </BtnTheme>
           <SignInLogIn>
             {/* <SignIn className="sign-in">Sign In</SignIn> */}

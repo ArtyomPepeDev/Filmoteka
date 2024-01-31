@@ -37,7 +37,7 @@ const CardList = ({ list }) => {
         />
       ))}
       {showModal && selectedFilm && (
-        <Modal toggleModal={toggleModal} film={selectedFilm}>
+        <Modal toggleModal={toggleModal}>
           <ModalFilm film={selectedFilm} genreList={genreList} />
         </Modal>
       )}

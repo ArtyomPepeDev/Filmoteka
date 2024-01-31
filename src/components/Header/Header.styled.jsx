@@ -138,6 +138,37 @@ export const SunIcon = styled.img`
   height: 20px;
 `
 
+export const ThemeSwitcher = styled.label`
+  width: 44px;
+  height: 22px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #10181d;
+  cursor: pointer;
+`
+
+export const ThemeSwitcherInput = styled.input`
+  appearance: none;
+  position: absolute;
+`
+
+export const ThemeSwitcherThumb = styled.div`
+  border-radius: 50px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  /* transform: ${(props) =>
+    props.isChecked ? 'translateX(22px)' : 'translateX(0)'}; */
+  translate: ${(props) => (props.isChecked ? 22 : 0)}px;
+
+  transition: translate 150ms linear;
+`
+
 export const SignInLogIn = styled.div`
   display: flex;
   align-items: center;
