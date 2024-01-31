@@ -46,7 +46,7 @@ const App = () => {
   }, [page, query])
 
   return (
-    <div>
+    <>
       <Header isError={isError} />
       <Container>
         {isLoading ? <Skeleton /> : <CardList list={films} />}
@@ -55,7 +55,7 @@ const App = () => {
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />
       )}
       <Footer />
-    </div>
+    </>
   )
 }
 

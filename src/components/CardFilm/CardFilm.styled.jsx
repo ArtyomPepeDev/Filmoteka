@@ -1,8 +1,14 @@
 import styled from 'styled-components'
 
 export const CardFilmWrapper = styled.a`
-  width: clamp(280px, 336px, 395px);
-  padding: 10px;
+  width: 395px;
+  cursor: pointer;
+
+  transition: scale 150ms;
+
+  &:hover {
+    scale: 1.02;
+  }
 `
 export const FilmContent = styled.div`
   display: flex;
@@ -17,8 +23,6 @@ export const FilmTitle = styled.h1`
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
-  overflow: hidden;
-  overlay: none;
 `
 
 export const Divider = styled.span`
@@ -34,15 +38,13 @@ export const FilmDescription = styled.p`
   gap: 10px;
   flex-wrap: wrap;
   color: #ff6b08;
-  font-family: Roboto;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
-  margin: 0;
 `
 
 export const ImageStyle = styled.img`
-  width: clamp(280px, 5vw, 100%);
+  width: 100%;
   border-radius: 10px;
 `
