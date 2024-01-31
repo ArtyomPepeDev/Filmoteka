@@ -20,30 +20,33 @@ const App = () => {
   console.log('query: ', query)
 
   useEffect(() => {
-    const fetchFilms = async () => {
-      const response = await fetchByQuery(query, page)
-      setFilms(response)
-      setPageCount(response)
-      if (response.length < 1) {
-        setIsError(true)
-        return
+    if (query) {
+      const fetchFilms = async () => {
+        setLoading(true)
+        const response = await fetchByQuery(query, page)
+        setLoading(false)
+        setFilms(response)
+        setPageCount(response)
+        if (response.length < 1) {
+          setIsError(true)
+          return
+        }
+        setIsError(false)
       }
-      setIsError(false)
+      fetchFilms()
+      return
     }
-    fetchFilms()
+    const fetchPopularFilms = async () => {
+      setLoading(true)
+      const response = await fetchPopular()
+      setLoading(false)
+      setFilms(response)
+    }
+    fetchPopularFilms()
   }, [page, query])
 
-  useEffect(() => {
-    if (films.length < 1) {
-      setLoading(true)
-      fetchPopular()
-        .then((data) => setFilms(data))
-        .finally(() => setLoading(false))
-    }
-  }, [])
-
   return (
-    <div>
+    <>
       <Header isError={isError} />
       <Container>
         {isLoading ? <Skeleton /> : <CardList list={films} />}
@@ -52,7 +55,7 @@ const App = () => {
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />
       )}
       <Footer />
-    </div>
+    </>
   )
 }
 

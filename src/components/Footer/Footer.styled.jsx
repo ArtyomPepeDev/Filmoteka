@@ -3,12 +3,13 @@ import styled from 'styled-components'
 export const FooterWrapper = styled.div`
   width: 100%;
   padding: 30px 36px;
+  margin-top: auto;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  
+
   background-color: #f7f7f7;
 `
 
