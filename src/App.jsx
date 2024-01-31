@@ -8,16 +8,22 @@ import './AppStyle.css'
 import { fetchByQuery, fetchPopular } from './services/fetchFilms'
 import Skeleton from './components/Skeleton'
 import { useSearchParams } from 'react-router-dom'
+import ModalAuth from './components/ModalAuth/ModalAuth'
 
 const App = () => {
   const [films, setFilms] = useState([])
   const [pageCount, setPageCount] = useState(0)
   const [isError, setIsError] = useState(false)
   const [isLoading, setLoading] = useState(false)
+  const [isAuthOpen, setAuthOpen] = useState(false)
   const [page, setPage] = useState(1)
   const [searchParams] = useSearchParams()
   const query = searchParams.get('query')
   console.log('query: ', query)
+
+  const toggleAuth = () => {
+    setAuthOpen(prevState => !prevState)
+  }
 
   useEffect(() => {
     if (query) {
@@ -47,7 +53,8 @@ const App = () => {
 
   return (
     <>
-      <Header isError={isError} />
+      <Header setAuthOpen={setAuthOpen} isError={isError} />
+      <ModalAuth toggleModal={toggleAuth} isAuthOpen={isAuthOpen}/>
       <Container>
         {isLoading ? <Skeleton /> : <CardList list={films} />}
       </Container>
