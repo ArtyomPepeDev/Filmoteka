@@ -24,7 +24,5 @@ export const fetchDetails = async (id) => {
     `${baseUrl}/movie/${id}/videos?api_key=${api_key}`
   )
 
-  console.log(data.results.find((item) => item.type === 'Trailer'))
-
   return data.results.find((item) => item.type === 'Trailer')
 }
