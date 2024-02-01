@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ModalAuthWrapper } from './ModalAuth.styled'
+import { ModalAuthWrapper, LogInText, Input, LogInButton } from './ModalAuth.styled'
 import Modal from '../Modal/Modal'
 
 const ModalAuth = ({ toggleModal, isAuthOpen }) => {
@@ -8,8 +8,16 @@ const ModalAuth = ({ toggleModal, isAuthOpen }) => {
     <>
       {isAuthOpen && (<Modal toggleModal={toggleModal}>
         <ModalAuthWrapper>
-          <h1>Log In</h1>
-          <input type="" />
+          <LogInText>Log In</LogInText>
+          <div>
+            <p>Username</p>
+            <Input type="text" placeholder='Username'/>
+          </div>
+          <div>
+            <p>Your Password</p>
+            <Input type="password" placeholder='Password' />
+          </div>
+          <LogInButton>Log In</LogInButton>
         </ModalAuthWrapper>
       </Modal>)}
     </>
