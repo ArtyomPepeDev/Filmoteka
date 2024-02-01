@@ -120,7 +120,7 @@ export const ModalButton = styled.button`
   cursor: pointer;
 `
 
-export const ButtonViewTrailer = styled.button`
+export const ButtonViewTrailer = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import {
   ModalFilmWrapper,
@@ -20,14 +20,23 @@ import {
   ButtonContainer,
 } from './ModalFilm.styled'
 import { getGenres, getPosterPath } from '../../utils'
+import { fetchDetails } from '../../services/fetchFilms'
 
 const ModalFilm = ({ film, genreList }) => {
+  const [filmDetails, setFilmDetails] = useState('')
   const genres = getGenres(genreList, film.genre_ids)
   const posterPath = getPosterPath(film.poster_path)
 
   const voteAverage = film.vote_average
 
-  console.log(film)
+  const trailerLink = `https://www.youtube.com/watch?v=${filmDetails?.key}`
+
+  useEffect(() => {
+    fetchDetails(film.id).then((res) => {
+      setFilmDetails(res)
+    })
+  }, [])
+
   return (
     <ModalFilmWrapper>
       <ModalStyle>
@@ -67,7 +76,7 @@ const ModalFilm = ({ film, genreList }) => {
               <ModalButton>ADD TO QUEUE</ModalButton>
             </ButtonModalDiv>
 
-            <ButtonViewTrailer>
+            <ButtonViewTrailer href={trailerLink} target="_blank">
               <img src="/images/svg/FilmIconLibrary.svg" />
               VIEW TRAILER
             </ButtonViewTrailer>

@@ -18,3 +18,13 @@ export const fetchByQuery = async (query, page) => {
 
   return data.results
 }
+
+export const fetchDetails = async (id) => {
+  const { data } = await axios.get(
+    `${baseUrl}/movie/${id}/videos?api_key=${api_key}`
+  )
+
+  console.log(data.results.find((item) => item.type === 'Trailer'))
+
+  return data.results.find((item) => item.type === 'Trailer')
+}
