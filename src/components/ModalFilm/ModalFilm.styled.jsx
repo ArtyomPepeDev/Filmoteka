@@ -135,6 +135,7 @@ export const ButtonViewTrailer = styled.a`
   font-weight: 500;
   line-height: 16px; /* 133.333% */
   text-transform: uppercase;
+  text-decoration: none;
   border-radius: 5px;
   background: #ff6b01;
   border: none;
