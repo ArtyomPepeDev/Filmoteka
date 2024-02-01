@@ -26,13 +26,14 @@ import {
   ButtonQueue,
   LibraryButtons,
 } from './Header.styled'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
 const Header = ({ isError, setAuthOpen }) => {
   const [value, setValue] = useState('')
   const [isChecked, setIsChecked] = useState(false)
   const { pathname } = useLocation()
   const [_, setSearchParams] = useSearchParams()
+  const navigate = useNavigate()
 
   const showInput = pathname === '/'
 
@@ -43,6 +44,10 @@ const Header = ({ isError, setAuthOpen }) => {
 
   const handleThemeSwitch = (event) => {
     setIsChecked(event.target.checked)
+  }
+
+  const handleSwitchFilmList = (page) => {
+    navigate(page)
   }
 
   return (
@@ -74,8 +79,12 @@ const Header = ({ isError, setAuthOpen }) => {
             </>
           ) : (
             <LibraryButtons>
-              <ButtonWatched>Watched</ButtonWatched>
-              <ButtonQueue>Queue</ButtonQueue>
+              <ButtonWatched onClick={() => handleSwitchFilmList('/watched')}>
+                Watched
+              </ButtonWatched>
+              <ButtonQueue onClick={() => handleSwitchFilmList('/queue')}>
+                Queue
+              </ButtonQueue>
             </LibraryButtons>
           )}
         </div>
@@ -83,7 +92,7 @@ const Header = ({ isError, setAuthOpen }) => {
         <NavMenu>
           <NavText>
             <NavigationLink to="/">Home</NavigationLink>
-            <NavigationLink to="/library">Library</NavigationLink>
+            <NavigationLink to="/watched">Library</NavigationLink>
           </NavText>
           <BtnTheme>
             <ThemeSwitcher>
