@@ -7,6 +7,7 @@ import {
   ImageStyle,
   Divider,
   FilmContent,
+  VoteAverageFilm,
 } from './CardFilm.styled'
 import Marquee from 'react-fast-marquee'
 import { getGenres, getPosterPath } from '../../utils'
@@ -31,6 +32,7 @@ const CardFilm = ({ item, genreList, toggleModal }) => {
           {item.release_date
             ? new Date(item.release_date).getFullYear()
             : 'Unknown'}
+            <VoteAverageFilm>{item.vote_average.toFixed(1)}</VoteAverageFilm>
         </FilmDescription>
       </FilmContent>
     </CardFilmWrapper>

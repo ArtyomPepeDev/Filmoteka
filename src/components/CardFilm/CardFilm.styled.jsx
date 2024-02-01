@@ -48,3 +48,15 @@ export const ImageStyle = styled.img`
   width: 100%;
   border-radius: 10px;
 `
+
+export const VoteAverageFilm = styled.span`
+  color: #fff;
+  background-color: #ff6b08;
+  border-radius: 10px;
+  width: 40px;
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+`
