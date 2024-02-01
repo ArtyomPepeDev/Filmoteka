@@ -92,6 +92,7 @@ export const MovieInfoContent = styled.p`
 `
 
 export const ButtonContainer = styled.div`
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 27px;
