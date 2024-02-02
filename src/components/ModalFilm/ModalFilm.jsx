@@ -23,11 +23,10 @@ import { getGenres, getPosterPath } from '../../utils'
 import { fetchDetails } from '../../services/fetchFilms'
 import useLocalStorage from '../../hooks/useLocalStorage'
 
-const ModalFilm = ({ film, genreList }) => {
+const ModalFilm = ({ film, genreList, addFilm, removeFilm, isExists }) => {
   const [filmDetails, setFilmDetails] = useState('')
   const genres = getGenres(genreList, film.genre_ids)
   const posterPath = getPosterPath(film.poster_path)
-  const { addFilm, removeFilm, isExists } = useLocalStorage()
 
   const voteAverage = film.vote_average
 

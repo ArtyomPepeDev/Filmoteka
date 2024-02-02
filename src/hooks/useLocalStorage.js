@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useLocalStorage = ({ forceUpdate }) => {
-  console.log('forceUpdate: ', forceUpdate)
+const useLocalStorage = () => {
   const [watchedList, setWatchedList] = useState(
     JSON.parse(localStorage.getItem('watched')) || []
   )

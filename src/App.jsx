@@ -2,7 +2,7 @@ import Header from './components/Header'
 import Paginate from './components/Paginate'
 import Container from './components/Container'
 import Footer from './components/Footer'
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useState } from 'react'
 import CardList from './components/CardList'
 import './AppStyle.css'
 import { fetchByQuery, fetchPopular } from './services/fetchFilms'
@@ -12,7 +12,6 @@ import ModalAuth from './components/ModalAuth/ModalAuth'
 import useLocalStorage from './hooks/useLocalStorage'
 
 const App = () => {
-  const { pathname } = useLocation()
   const [films, setFilms] = useState([])
   const [pageCount, setPageCount] = useState(0)
   const [isError, setIsError] = useState(false)
@@ -21,8 +20,9 @@ const App = () => {
   const [page, setPage] = useState(1)
   const [searchParams] = useSearchParams()
   const query = searchParams.get('query')
-  const [, forceUpdate] = useReducer((x) => x + 1, 0) // duct tape
-  const { watchedList, queueList } = useLocalStorage({ forceUpdate })
+  const { pathname } = useLocation()
+  const { watchedList, queueList, addFilm, removeFilm, isExists } =
+    useLocalStorage()
 
   const toggleAuth = () => {
     setAuthOpen((prevState) => !prevState)
@@ -70,6 +70,9 @@ const App = () => {
                 ? queueList
                 : films
             }
+            addFilm={addFilm}
+            removeFilm={removeFilm}
+            isExists={isExists}
           />
         )}
       </Container>
