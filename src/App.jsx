@@ -7,10 +7,11 @@ import CardList from './components/CardList'
 import './AppStyle.css'
 import { fetchByQuery, fetchPopular } from './services/fetchFilms'
 import Skeleton from './components/Skeleton'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import ModalAuth from './components/ModalAuth/ModalAuth'
 
 const App = () => {
+  const { pathname } = useLocation()
   const [films, setFilms] = useState([])
   const [pageCount, setPageCount] = useState(0)
   const [isError, setIsError] = useState(false)
@@ -21,7 +22,7 @@ const App = () => {
   const query = searchParams.get('query')
 
   const toggleAuth = () => {
-    setAuthOpen(prevState => !prevState)
+    setAuthOpen((prevState) => !prevState)
   }
 
   useEffect(() => {
@@ -52,8 +53,8 @@ const App = () => {
 
   return (
     <>
-      <Header setAuthOpen={setAuthOpen} isError={isError} />
-      <ModalAuth toggleModal={toggleAuth} isAuthOpen={isAuthOpen}/>
+      <Header list={films} setAuthOpen={setAuthOpen} isError={isError} />
+      <ModalAuth toggleModal={toggleAuth} isAuthOpen={isAuthOpen} />
       <Container>
         {isLoading ? <Skeleton /> : <CardList list={films} />}
       </Container>

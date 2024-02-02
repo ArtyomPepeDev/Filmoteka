@@ -23,6 +23,7 @@ import { getGenres, getPosterPath } from '../../utils'
 import { fetchDetails } from '../../services/fetchFilms'
 
 const ModalFilm = ({ film, genreList }) => {
+  console.log('film: ', film)
   const [filmDetails, setFilmDetails] = useState('')
   const genres = getGenres(genreList, film.genre_ids)
   const posterPath = getPosterPath(film.poster_path)
@@ -30,6 +31,18 @@ const ModalFilm = ({ film, genreList }) => {
   const voteAverage = film.vote_average
 
   const trailerLink = `https://www.youtube.com/watch?v=${filmDetails?.key}`
+
+  const handleFilmAction = (category) => {
+    const watchedList = localStorage.getItem('watched') || []
+    console.log('watchedList: ', watchedList)
+    const queueList = localStorage.getItem('queue') || []
+    console.log(...[])
+    if (category === 'watched') {
+      localStorage.setItem('watched', [...watchedList, film])
+      return
+    }
+    localStorage.setItem('queue', [...queueList, film])
+  }
 
   useEffect(() => {
     fetchDetails(film.id).then((res) => {
@@ -72,8 +85,12 @@ const ModalFilm = ({ film, genreList }) => {
           </ModalDescription>
           <ButtonContainer>
             <ButtonModalDiv>
-              <ModalButton>ADD TO WATCHED</ModalButton>
-              <ModalButton>ADD TO QUEUE</ModalButton>
+              <ModalButton onClick={() => handleFilmAction('watched')}>
+                ADD TO WATCHED
+              </ModalButton>
+              <ModalButton onClick={() => handleFilmAction('queue')}>
+                ADD TO QUEUE
+              </ModalButton>
             </ButtonModalDiv>
 
             <ButtonViewTrailer href={trailerLink} target="_blank">

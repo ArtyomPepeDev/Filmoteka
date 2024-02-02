@@ -78,10 +78,16 @@ const Header = ({ isError, setAuthOpen, checkPage }) => {
             </>
           ) : (
             <LibraryButtons>
-              <ButtonLibrary isActive={pathname === '/watched'} onClick={() => handleSwitchFilmList('/watched')}>
+              <ButtonLibrary
+                isActive={pathname === '/watched'}
+                onClick={() => handleSwitchFilmList('/watched')}
+              >
                 Watched
               </ButtonLibrary>
-              <ButtonLibrary isActive={pathname === '/queue'} onClick={() => handleSwitchFilmList('/queue')}>
+              <ButtonLibrary
+                isActive={pathname === '/queue'}
+                onClick={() => handleSwitchFilmList('/queue')}
+              >
                 Queue
               </ButtonLibrary>
             </LibraryButtons>
