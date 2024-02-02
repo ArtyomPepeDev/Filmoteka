@@ -22,13 +22,12 @@ import {
   SignIn,
   LogIn,
   // SunIcon,
-  ButtonWatched,
-  ButtonQueue,
+  ButtonLibrary,
   LibraryButtons,
 } from './Header.styled'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
-const Header = ({ isError, setAuthOpen }) => {
+const Header = ({ isError, setAuthOpen, checkPage }) => {
   const [value, setValue] = useState('')
   const [isChecked, setIsChecked] = useState(false)
   const { pathname } = useLocation()
@@ -79,12 +78,12 @@ const Header = ({ isError, setAuthOpen }) => {
             </>
           ) : (
             <LibraryButtons>
-              <ButtonWatched onClick={() => handleSwitchFilmList('/watched')}>
+              <ButtonLibrary isActive={pathname === '/watched'} onClick={() => handleSwitchFilmList('/watched')}>
                 Watched
-              </ButtonWatched>
-              <ButtonQueue onClick={() => handleSwitchFilmList('/queue')}>
+              </ButtonLibrary>
+              <ButtonLibrary isActive={pathname === '/queue'} onClick={() => handleSwitchFilmList('/queue')}>
                 Queue
-              </ButtonQueue>
+              </ButtonLibrary>
             </LibraryButtons>
           )}
         </div>

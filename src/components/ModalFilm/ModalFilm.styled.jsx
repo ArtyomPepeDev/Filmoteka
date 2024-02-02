@@ -114,6 +114,7 @@ export const ModalButton = styled.button`
   font-weight: 500;
   line-height: 16px;
   text-transform: uppercase;
+  background: transparent;
   border-radius: 10px;
   border: 1px solid #000;
   outline: none;

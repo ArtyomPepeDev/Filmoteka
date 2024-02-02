@@ -218,12 +218,12 @@ export const LogIn = styled.button`
   cursor: pointer;
 `
 
-export const ButtonWatched = styled.button`
+export const ButtonLibrary = styled.button`
   width: 148px;
   height: 42px;
   border-radius: 5px;
-  background: #ff6b01;
-  border: none;
+  background: ${(props) => props.isActive ? '#ff6b01' : 'transparent'};
+  border: ${(props) => props.isActive ? 'none' : 'solid 1px #fff'};
   outline: none;
   color: #fff;
   text-align: center;
@@ -237,26 +237,17 @@ export const ButtonWatched = styled.button`
 
   &:hover {
     background: #ff6b01;
+    border: none;
     box-shadow: 0 0 5px #ac6c3e, 0 0 20px #ac6c3e, 0 0 20px #ac6c3e,
       0 0 20px #ac6c3e;
   }
-`
 
-export const ButtonQueue = styled.button`
-  width: 148px;
-  height: 42px;
-  border-radius: 5px;
-  border: 1px solid #fff;
-  outline: none;
-  color: #fff;
-  text-align: center;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 16px;
-  text-transform: uppercase;
-  background: transparent;
+  &:focus {
+    background: #ff6b01;
+    border: none;
+    box-shadow: 0 0 5px #ac6c3e, 0 0 20px #ac6c3e, 0 0 20px #ac6c3e,
+      0 0 20px #ac6c3e;
+  }
 `
 
 export const LibraryButtons = styled.div`
