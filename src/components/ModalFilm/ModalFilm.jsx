@@ -27,21 +27,43 @@ const ModalFilm = ({ film, genreList }) => {
   const [filmDetails, setFilmDetails] = useState('')
   const genres = getGenres(genreList, film.genre_ids)
   const posterPath = getPosterPath(film.poster_path)
+  const queueList = JSON.parse(localStorage.getItem('queue')) || []
+  const watchedList = JSON.parse(localStorage.getItem('watched')) || []
+  const [alreadyInWatched, setInWatched] = useState(
+    watchedList.some((item) => item.id === film.id)
+  )
+  const [alreadyInQueue, setInQueue] = useState(
+    queueList.some((item) => item.id === film.id)
+  )
 
   const voteAverage = film.vote_average
 
   const trailerLink = `https://www.youtube.com/watch?v=${filmDetails?.key}`
 
   const handleFilmAction = (category) => {
-    const watchedList = localStorage.getItem('watched') || []
-    console.log('watchedList: ', watchedList)
-    const queueList = localStorage.getItem('queue') || []
-    console.log(...[])
     if (category === 'watched') {
-      localStorage.setItem('watched', [...watchedList, film])
+      if (!alreadyInWatched) {
+        localStorage.setItem('watched', JSON.stringify([...watchedList, film]))
+        setInWatched(true)
+      } else {
+        localStorage.setItem(
+          'watched',
+          JSON.stringify(watchedList.filter((item) => item.id !== film.id))
+        )
+        setInWatched(false)
+      }
       return
     }
-    localStorage.setItem('queue', [...queueList, film])
+    if (!alreadyInQueue) {
+      localStorage.setItem('queue', JSON.stringify([...queueList, film]))
+      setInQueue(true)
+    } else {
+      localStorage.setItem(
+        'queue',
+        JSON.stringify(queueList.filter((item) => item.id !== film.id))
+      )
+      setInQueue(false)
+    }
   }
 
   useEffect(() => {
@@ -86,10 +108,10 @@ const ModalFilm = ({ film, genreList }) => {
           <ButtonContainer>
             <ButtonModalDiv>
               <ModalButton onClick={() => handleFilmAction('watched')}>
-                ADD TO WATCHED
+                {alreadyInWatched ? 'Remove From Watched' : 'ADD TO WATCHED'}
               </ModalButton>
               <ModalButton onClick={() => handleFilmAction('queue')}>
-                ADD TO QUEUE
+                {alreadyInQueue ? 'Remove From Queue' : 'ADD TO QUEUE'}
               </ModalButton>
             </ButtonModalDiv>
 
