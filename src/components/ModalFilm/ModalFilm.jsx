@@ -21,20 +21,13 @@ import {
 } from './ModalFilm.styled'
 import { getGenres, getPosterPath } from '../../utils'
 import { fetchDetails } from '../../services/fetchFilms'
+import useLocalStorage from '../../hooks/useLocalStorage'
 
 const ModalFilm = ({ film, genreList }) => {
-  console.log('film: ', film)
   const [filmDetails, setFilmDetails] = useState('')
   const genres = getGenres(genreList, film.genre_ids)
   const posterPath = getPosterPath(film.poster_path)
-  const queueList = JSON.parse(localStorage.getItem('queue')) || []
-  const watchedList = JSON.parse(localStorage.getItem('watched')) || []
-  const [alreadyInWatched, setInWatched] = useState(
-    watchedList.some((item) => item.id === film.id)
-  )
-  const [alreadyInQueue, setInQueue] = useState(
-    queueList.some((item) => item.id === film.id)
-  )
+  const { addFilm, removeFilm, isExists } = useLocalStorage()
 
   const voteAverage = film.vote_average
 
@@ -42,28 +35,21 @@ const ModalFilm = ({ film, genreList }) => {
 
   const handleFilmAction = (category) => {
     if (category === 'watched') {
-      if (!alreadyInWatched) {
-        localStorage.setItem('watched', JSON.stringify([...watchedList, film]))
-        setInWatched(true)
-      } else {
-        localStorage.setItem(
-          'watched',
-          JSON.stringify(watchedList.filter((item) => item.id !== film.id))
-        )
-        setInWatched(false)
+      if (!isExists(film.id, category)) {
+        addFilm(film, category)
+        return
       }
+
+      removeFilm(film.id, category)
       return
     }
-    if (!alreadyInQueue) {
-      localStorage.setItem('queue', JSON.stringify([...queueList, film]))
-      setInQueue(true)
-    } else {
-      localStorage.setItem(
-        'queue',
-        JSON.stringify(queueList.filter((item) => item.id !== film.id))
-      )
-      setInQueue(false)
+
+    if (!isExists(film.id, category)) {
+      addFilm(film, category)
+      return
     }
+
+    removeFilm(film.id, category)
   }
 
   useEffect(() => {
@@ -108,10 +94,14 @@ const ModalFilm = ({ film, genreList }) => {
           <ButtonContainer>
             <ButtonModalDiv>
               <ModalButton onClick={() => handleFilmAction('watched')}>
-                {alreadyInWatched ? 'Remove From Watched' : 'ADD TO WATCHED'}
+                {isExists(film.id, 'watched')
+                  ? 'Remove From Watched'
+                  : 'ADD TO WATCHED'}
               </ModalButton>
               <ModalButton onClick={() => handleFilmAction('queue')}>
-                {alreadyInQueue ? 'Remove From Queue' : 'ADD TO QUEUE'}
+                {isExists(film.id, 'queue')
+                  ? 'Remove From Queue'
+                  : 'ADD TO QUEUE'}
               </ModalButton>
             </ButtonModalDiv>
 
