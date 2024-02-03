@@ -12,6 +12,20 @@ export const CardFilmWrapper = styled.a`
   &:hover {
     scale: 1.02;
   }
+
+  @media (max-width: 1279px) {
+    flex-basis: calc(100% / 2 - 32px);
+
+    margin-top: 32px;
+    margin-left: 32px;
+  }
+
+  @media (max-width: 767px) {
+    flex-basis: 100%;
+
+    margin-top: 20px;
+    margin-left: 0;
+  }
 `
 export const FilmContent = styled.div`
   display: flex;

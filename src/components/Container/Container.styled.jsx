@@ -5,7 +5,8 @@ export const ContainerWrapper = styled.div`
 `
 
 export const ContainerInner = styled.div`
-  width: 1280px;
+  max-width: 1280px;
+  min-width: 240px;
   padding: 60px 0px;
   margin: 0 auto;
 `
