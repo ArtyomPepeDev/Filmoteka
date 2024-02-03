@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ContainerWrapper } from './Container.styled'
+import { ContainerWrapper, ContainerInner } from './Container.styled'
 
-const Container = ({children}) => (
-    <ContainerWrapper>
-        {children}
-    </ContainerWrapper>
+const Container = ({ children }) => (
+  <ContainerWrapper>
+    <ContainerInner>{children}</ContainerInner>
+  </ContainerWrapper>
 )
 
 Container.propTypes = {}

@@ -56,34 +56,32 @@ const App = () => {
   }, [page, query])
 
   return (
-    <>
-      <ThemeProvider>
-        <Header setAuthOpen={setAuthOpen} isError={isError} />
-        <ModalAuth toggleModal={toggleAuth} isAuthOpen={isAuthOpen} />
-        <Container>
-          {isLoading ? (
-            <Skeleton />
-          ) : (
-            <CardList
-              list={
-                pathname === '/watched'
-                  ? watchedList
-                  : pathname === '/queue'
-                  ? queueList
-                  : films
-              }
-              addFilm={addFilm}
-              removeFilm={removeFilm}
-              isExists={isExists}
-            />
-          )}
-        </Container>
-      </ThemeProvider>
+    <ThemeProvider>
+      <Header setAuthOpen={setAuthOpen} isError={isError} />
+      <ModalAuth toggleModal={toggleAuth} isAuthOpen={isAuthOpen} />
+      <Container>
+        {isLoading ? (
+          <Skeleton />
+        ) : (
+          <CardList
+            list={
+              pathname === '/watched'
+                ? watchedList
+                : pathname === '/queue'
+                ? queueList
+                : films
+            }
+            addFilm={addFilm}
+            removeFilm={removeFilm}
+            isExists={isExists}
+          />
+        )}
+      </Container>
       {films.length > 0 && pageCount > 1 && (
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />
       )}
       <Footer />
-    </>
+    </ThemeProvider>
   )
 }
 

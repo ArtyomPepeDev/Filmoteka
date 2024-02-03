@@ -44,6 +44,7 @@ const Header = ({ isError, setAuthOpen, checkPage }) => {
   }
 
   const handleThemeSwitch = (event) => {
+    toggleTheme()
     setIsChecked(event.target.checked)
   }
 
@@ -102,10 +103,11 @@ const Header = ({ isError, setAuthOpen, checkPage }) => {
             <NavigationLink to="/watched">Library</NavigationLink>
           </NavText>
           <BtnTheme>
-            <ThemeSwitcher onClick={toggleTheme}>
+            <ThemeSwitcher>
               <ThemeSwitcherInput
                 type="checkbox"
                 onChange={handleThemeSwitch}
+                checked={isChecked}
               />
               <ThemeSwitcherThumb isChecked={isChecked}>
                 {isChecked ? <MoonIcon /> : <SunIcon />}
