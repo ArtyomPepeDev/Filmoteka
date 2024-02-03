@@ -10,6 +10,7 @@ import Skeleton from './components/Skeleton'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import ModalAuth from './components/ModalAuth/ModalAuth'
 import useLocalStorage from './hooks/useLocalStorage'
+import { ThemeProvider } from './Provider/ThemeProvider'
 
 const App = () => {
   const [films, setFilms] = useState([])
@@ -56,26 +57,28 @@ const App = () => {
 
   return (
     <>
-      <Header setAuthOpen={setAuthOpen} isError={isError} />
-      <ModalAuth toggleModal={toggleAuth} isAuthOpen={isAuthOpen} />
-      <Container>
-        {isLoading ? (
-          <Skeleton />
-        ) : (
-          <CardList
-            list={
-              pathname === '/watched'
-                ? watchedList
-                : pathname === '/queue'
-                ? queueList
-                : films
-            }
-            addFilm={addFilm}
-            removeFilm={removeFilm}
-            isExists={isExists}
-          />
-        )}
-      </Container>
+      <ThemeProvider>
+        <Header setAuthOpen={setAuthOpen} isError={isError} />
+        <ModalAuth toggleModal={toggleAuth} isAuthOpen={isAuthOpen} />
+        <Container>
+          {isLoading ? (
+            <Skeleton />
+          ) : (
+            <CardList
+              list={
+                pathname === '/watched'
+                  ? watchedList
+                  : pathname === '/queue'
+                  ? queueList
+                  : films
+              }
+              addFilm={addFilm}
+              removeFilm={removeFilm}
+              isExists={isExists}
+            />
+          )}
+        </Container>
+      </ThemeProvider>
       {films.length > 0 && pageCount > 1 && (
         <Paginate pageCount={pageCount} setPage={setPage} page={page} />
       )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import SunIcon from '/public/images/svg/SunIcon.svg?react'
 import MoonIcon from '/public/images/svg/MoonIcon.svg?react'
@@ -26,6 +26,7 @@ import {
   LibraryButtons,
 } from './Header.styled'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
+import { ThemeContext } from 'styled-components'
 
 const Header = ({ isError, setAuthOpen, checkPage }) => {
   const [value, setValue] = useState('')
@@ -33,6 +34,7 @@ const Header = ({ isError, setAuthOpen, checkPage }) => {
   const { pathname } = useLocation()
   const [_, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
+  const { toggleTheme } = useContext(ThemeContext)
 
   const showInput = pathname === '/'
 
@@ -100,7 +102,7 @@ const Header = ({ isError, setAuthOpen, checkPage }) => {
             <NavigationLink to="/watched">Library</NavigationLink>
           </NavText>
           <BtnTheme>
-            <ThemeSwitcher>
+            <ThemeSwitcher onClick={toggleTheme}>
               <ThemeSwitcherInput
                 type="checkbox"
                 onChange={handleThemeSwitch}
