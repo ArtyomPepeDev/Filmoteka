@@ -17,20 +17,20 @@ const lightTheme = {
 }
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
 
   const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev)
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
   }
 
-  const theme = isDarkMode ? darkTheme : lightTheme
+  const currentTheme = theme === 'dark' ? darkTheme : lightTheme
 
   useEffect(() => {
-    console.log(theme)
-  }, [isDarkMode])
+    localStorage.setItem('theme', theme)
+  }, [currentTheme])
 
   return (
-    <ThemeProviderSc theme={{ colors: theme, toggleTheme }}>
+    <ThemeProviderSc theme={{ colors: currentTheme, toggleTheme }}>
       {children}
     </ThemeProviderSc>
   )
