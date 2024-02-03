@@ -10,7 +10,7 @@ export const FooterWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-  background-color: #f7f7f7;
+  background-color: ${(props) => props.theme.colors.footerBg};
 `
 
 export const FooterContent = styled.p`
