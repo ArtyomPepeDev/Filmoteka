@@ -5,10 +5,7 @@ export const ContainerWrapper = styled.div`
 `
 
 export const ContainerInner = styled.div`
-  width: calc(1280px + 64px);
+  width: 1280px;
   padding: 60px 0px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `

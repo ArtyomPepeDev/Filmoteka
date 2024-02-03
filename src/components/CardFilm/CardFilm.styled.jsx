@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const CardFilmWrapper = styled.a`
-  width: 395px;
+  flex-basis: calc(100% / 3 - 16px);
+  margin-top: 16px;
+  margin-left: 16px;
+
   cursor: pointer;
 
   transition: scale 150ms;

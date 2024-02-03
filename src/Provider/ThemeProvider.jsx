@@ -7,7 +7,7 @@ const darkTheme = {
   text: '#fff',
   border: '#fff',
   close: '#fff',
-  footerBg: '#0c0c0c',
+  secondaryBg: '#0c0c0c',
 }
 
 const lightTheme = {
@@ -15,7 +15,7 @@ const lightTheme = {
   text: '#000',
   border: '#000',
   close: '#000',
-  footerBg: '#f7f7f7',
+  secondaryBg: '#f7f7f7',
 }
 
 export const ThemeProvider = ({ children }) => {
