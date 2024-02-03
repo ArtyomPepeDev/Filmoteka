@@ -16,7 +16,7 @@ export const fetchByQuery = async (query, page) => {
     `${baseUrl}/search/movie?api_key=${api_key}&query=${query}&page=${page}`
   )
 
-  return data.results
+  return data
 }
 
 export const fetchDetails = async (id) => {

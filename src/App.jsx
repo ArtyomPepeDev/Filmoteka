@@ -33,11 +33,11 @@ const App = () => {
     if (query) {
       const fetchFilms = async () => {
         setLoading(true)
-        const response = await fetchByQuery(query, page)
+        const { results, total_pages } = await fetchByQuery(query, page)
         setLoading(false)
-        setFilms(response)
-        setPageCount(response)
-        if (response.length < 1) {
+        setFilms(results)
+        setPageCount(total_pages)
+        if (results.length < 1) {
           setIsError(true)
           return
         }
@@ -50,6 +50,7 @@ const App = () => {
       setLoading(true)
       const response = await fetchPopular()
       setLoading(false)
+      setPageCount(0)
       setFilms(response)
     }
     fetchPopularFilms()
