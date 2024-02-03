@@ -20,7 +20,7 @@ export const ModalImg = styled.img`
 
 export const ModalMovieName = styled.h1`
   width: 400px;
-  color: #000;
+  color: ${(props) => props.theme.colors.text};
   font-size: 30px;
   font-style: normal;
   font-weight: 500;
@@ -40,7 +40,7 @@ export const MovieInfoList = styled.div`
 `
 
 export const AboutStyle = styled.h2`
-  color: #000;
+  color: ${(props) => props.theme.colors.text};
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -55,7 +55,7 @@ export const ModalDescription = styled.div`
 
 export const MovieDescription = styled.p`
   width: 391px;
-  color: #000;
+  color: ${(props) => props.theme.colors.text};
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -87,7 +87,7 @@ export const MovieInfoContent = styled.p`
   align-items: center;
   gap: 5px;
   font-weight: 500;
-  color: ${(props) => props.color};
+  color: ${(props) => props.color || props.theme.colors.text};
   max-width: 200px;
 `
 
@@ -106,7 +106,7 @@ export const ButtonModalDiv = styled.div`
 export const ModalButton = styled.button`
   width: 150px;
   height: 44px;
-  color: #000;
+  color: ${(props) => props.theme.colors.text};
   text-align: center;
   font-family: Roboto;
   font-size: 12px;
@@ -116,7 +116,7 @@ export const ModalButton = styled.button`
   text-transform: uppercase;
   background: transparent;
   border-radius: 10px;
-  border: 1px solid #000;
+  border: 1px solid ${(props) => props.theme.colors.border};
   outline: none;
   cursor: pointer;
 `
@@ -128,7 +128,7 @@ export const ButtonViewTrailer = styled.a`
   gap: 7px;
   width: 330px;
   height: 50px;
-  color: #fff;
+  color: ${(props) => props.theme.colors.text};
   text-align: center;
   font-family: Roboto;
   font-size: 12px;

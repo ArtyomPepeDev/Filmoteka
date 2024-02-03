@@ -1,7 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import { ModalBackdrop, ModalWindow, CloseButton } from './Modal.styled'
+import {
+  ModalBackdrop,
+  ModalWindow,
+  CloseButton,
+  CloseImg,
+} from './Modal.styled'
 
 const Modal = ({ children, toggleModal }) => {
   const modalRoot = document.getElementById('modal-root')
@@ -17,7 +22,7 @@ const Modal = ({ children, toggleModal }) => {
       <ModalWindow>
         {children}
         <CloseButton onClick={toggleModal}>
-          <img src="/images/svg/CloseIcon.svg" />
+          <CloseImg src="/images/svg/CloseIcon.svg" />
         </CloseButton>
       </ModalWindow>
     </ModalBackdrop>,

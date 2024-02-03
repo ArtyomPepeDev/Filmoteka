@@ -19,7 +19,7 @@ export const FilmTitle = styled.h1`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  color: ${(props) => props.theme.title};
+  color: ${(props) => props.theme.colors.text};
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
