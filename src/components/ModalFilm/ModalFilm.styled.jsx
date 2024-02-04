@@ -16,6 +16,10 @@ export const ModalImgWrapper = styled.div`
 export const ModalImg = styled.img`
   width: 100%;
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `
 
 export const ModalMovieName = styled.h1`
@@ -96,11 +100,18 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 27px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
 `
 
 export const ButtonModalDiv = styled.div`
   display: flex;
   gap: 30px;
+  align-items: center;
 `
 
 export const ModalButton = styled.button`
