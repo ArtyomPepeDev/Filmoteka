@@ -17,6 +17,13 @@ export const HeaderMain = styled.header`
     rgba(35, 35, 62, 1) 100%,
     rgba(0, 212, 255, 1) 100%
   );
+
+  @media (max-width: 845px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 `
 
 export const Logo = styled(Link)`
@@ -82,6 +89,14 @@ export const NavMenu = styled.div`
   display: flex;
   gap: 10px;
   flex-direction: column;
+
+  @media (max-width: 845px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+  }
 `
 
 export const NavText = styled.div`
@@ -117,6 +132,12 @@ export const BtnTheme = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
+
+  @media (max-width: 845px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const BtnChangeTheme = styled.button`
@@ -222,8 +243,8 @@ export const ButtonLibrary = styled.button`
   width: 148px;
   height: 42px;
   border-radius: 5px;
-  background: ${(props) => props.isActive ? '#ff6b01' : 'transparent'};
-  border: ${(props) => props.isActive ? 'none' : 'solid 1px #fff'};
+  background: ${(props) => (props.isActive ? '#ff6b01' : 'transparent')};
+  border: ${(props) => (props.isActive ? 'none' : 'solid 1px #fff')};
   outline: none;
   color: #fff;
   text-align: center;
