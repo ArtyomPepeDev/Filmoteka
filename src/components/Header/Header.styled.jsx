@@ -57,6 +57,13 @@ export const SearchBar = styled.form`
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   font-size: 18px;
+
+  @media (max-width: 535px) {
+    width: 100%;
+  }
+  @media (max-width: 375px) {
+    width: 100%;
+  }
 `
 
 export const InputBar = styled.input`

@@ -114,10 +114,6 @@ const Header = ({ isError, setAuthOpen, checkPage }) => {
               </ThemeSwitcherThumb>
             </ThemeSwitcher>
           </BtnTheme>
-          <SignInLogIn>
-            {/* <SignIn className="sign-in">Sign In</SignIn> */}
-            <LogIn onClick={() => setAuthOpen(true)}>Log In</LogIn>
-          </SignInLogIn>
         </NavMenu>
       </HeaderMain>
     </HeaderWrapper>
