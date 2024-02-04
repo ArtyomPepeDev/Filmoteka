@@ -73,6 +73,7 @@ export const InputBar = styled.input`
   padding: 10px 2px;
   border: none;
   outline: none;
+  color: white;
   background-color: rgba(255, 255, 255, 0.1);
 `
 
