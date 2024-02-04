@@ -18,7 +18,8 @@ export const ModalImg = styled.img`
   border-radius: 5px;
 
   @media (max-width: 768px) {
-    padding: 20px;
+    width: 100%;
+    height: 85%;
   }
 `
 
@@ -102,9 +103,8 @@ export const ButtonContainer = styled.div`
   gap: 27px;
 
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: end;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
   }
 `
 
