@@ -28,6 +28,7 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 8px;
   right: 8px;
+  color: ${(props) => props.theme.colors.close};
   background: transparent;
   border: none;
   outline: none;
@@ -38,8 +39,4 @@ export const CloseButton = styled.button`
   &:hover {
     color: #ff6b01;
   }
-`
-
-export const CloseImg = styled.img`
-  color: ${(props) => props.theme.colors.close};
 `

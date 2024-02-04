@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import {
   ModalBackdrop,
   ModalWindow,
   CloseButton,
-  CloseImg,
 } from './Modal.styled'
-import { useEffect } from 'react'
+import CloseIcon from '/public/images/svg/CloseIcon.svg?react'
 
 const Modal = ({ children, toggleModal }) => {
   const modalRoot = document.getElementById('modal-root')
@@ -31,7 +30,7 @@ const Modal = ({ children, toggleModal }) => {
       <ModalWindow>
         {children}
         <CloseButton onClick={toggleModal}>
-          <CloseImg src="/images/svg/CloseIcon.svg" />
+          <CloseIcon />
         </CloseButton>
       </ModalWindow>
     </ModalBackdrop>,
