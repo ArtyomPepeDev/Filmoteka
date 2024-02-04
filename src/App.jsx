@@ -52,6 +52,7 @@ const App = () => {
       setLoading(false)
       setPageCount(0)
       setFilms(response)
+      setIsError(false)
     }
     fetchPopularFilms()
   }, [page, query])
