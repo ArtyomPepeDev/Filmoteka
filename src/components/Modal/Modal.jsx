@@ -7,6 +7,7 @@ import {
   CloseButton,
   CloseImg,
 } from './Modal.styled'
+import { useEffect } from 'react'
 
 const Modal = ({ children, toggleModal }) => {
   const modalRoot = document.getElementById('modal-root')
@@ -16,6 +17,14 @@ const Modal = ({ children, toggleModal }) => {
 
     toggleModal()
   }
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = 'visible'
+    }
+  }, [])
 
   return ReactDOM.createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
